@@ -548,6 +548,12 @@ img,svg{-webkit-user-drag:none;user-drag:none}
 
 /* ---------- Clock up top ---------- */
 .clock{text-align:center;padding:14px 0 18px;position:relative}
+/* On a narrow phone the four utility buttons occupy the first row. The
+   character used to start in that same row, which made the cloud button sit
+   over Doraemon's eyes. Reserve the row instead of relying on z-index. */
+@media (max-width:520px){
+  .clock{padding-top:58px}
+}
 .langbtn{position:absolute;top:16px;right:0;padding:7px 13px;border-radius:99px;
   border:1px solid var(--line);background:var(--card);color:var(--tx2);
   font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;letter-spacing:.05em}
@@ -1785,7 +1791,7 @@ a.shellCall:active{transform:scale(.94)}
 
 </style>
 <script>window.__FORCE_DEMO__ = true;</script>
-<script>window.BUILD = "va6ceb496";</script>
+<script>window.BUILD = "v85ca8a8a";</script>
 <script>
 if ("serviceWorker" in navigator) addEventListener("load", function(){
   navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
