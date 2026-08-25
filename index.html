@@ -1728,7 +1728,7 @@ a.shellCall:active{transform:scale(.94)}
 
 </style>
 <script>window.__FORCE_DEMO__ = true;</script>
-<script>window.BUILD = "v9c7a6388";</script>
+<script>window.BUILD = "v0faac976";</script>
 <script>
 if ("serviceWorker" in navigator) addEventListener("load", function(){
   navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
@@ -6842,9 +6842,11 @@ function restoreDemoRecovery(){
 }
 
 function enterDemo(){
-  // We should never get here while logged in -- demoLoad() would take the local copy
-  // (usually empty) and paint over what the cloud just returned. This once wiped a user's timetable.
-  if(CLOUD.on) return;
+  // When cloud sync is enabled, a logged-in cloud copy is authoritative and
+  // must not be replaced by local demo data. The public build deliberately
+  // keeps sync off, though: a remembered sign-in must not stop the offline
+  // demo from opening and make it look like the clock lost its alarms.
+  if(CLOUD.on && !SYNC_OFF) return;
   DEMO = true;
   demoLoad();
   if(!DB.skips) DB.skips = [];
@@ -12303,7 +12305,7 @@ setInterval(tick, 1000);
 setInterval(demoTick, 1000);
 // The pure-web demo build sets this flag first (it does not exist on real hardware, so no effect)
 // Logged in -> leave demo alone. The reason is in the comment inside enterDemo()
-if(window.__FORCE_DEMO__ && !CLOUD.on) enterDemo();
+if(window.__FORCE_DEMO__ && (!CLOUD.on || SYNC_OFF)) enterDemo();
 setInterval(pull, 3000);
 applyStatic();
 pull().then(pullSem).then(pullSkips).then(pullAlarms).then(pullRooms).then(pullHoli);
