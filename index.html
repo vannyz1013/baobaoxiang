@@ -623,6 +623,7 @@ img,svg{-webkit-user-drag:none;user-drag:none}
   border:1px solid var(--line);background:var(--card);color:var(--tx2);
   font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;letter-spacing:.05em}
 .homebtn,.themebtn,.helpbtn,.cloudbtn,.langbtn{z-index:60}
+.themebtn,.helpbtn,.cloudbtn,.langbtn{min-height:44px}
 .langbtn:active{border-color:var(--ac);color:var(--ac2)}
 .clock .t{
   font-size:clamp(56px,19vw,86px); font-weight:200; letter-spacing:-.03em;
@@ -1007,7 +1008,7 @@ select{background-color:var(--card2);color:var(--tx)}
 
 /* Campus home — iPhone / iPad springboard, not cards */
 .homebtn{position:absolute;top:16px;left:0;z-index:60;padding:7px 12px;border-radius:99px;
-  border:1px solid var(--line);background:var(--card);color:var(--tx2);
+  min-height:44px;border:1px solid var(--line);background:var(--card);color:var(--tx2);
   font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;line-height:1}
 .homebtn:active{border-color:var(--ac);color:var(--ac)}
 .themebtn{left:46px}
@@ -1231,7 +1232,7 @@ body.at-home .actionbar{display:none !important}
 .homeTop{display:flex;justify-content:space-between;align-items:center;
   margin:0 0 var(--sp-3)}
 .homeMe{
-  position:relative;width:34px;height:34px;padding:0;display:grid;place-items:center;
+  position:relative;width:44px;height:44px;padding:0;display:grid;place-items:center;
   border-radius:var(--r-full);border:1px solid var(--edge);
   background:color-mix(in srgb, var(--card) 62%, transparent);color:var(--tx);cursor:pointer;
   backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);
@@ -1244,7 +1245,7 @@ body.at-home .actionbar{display:none !important}
   background:var(--ok);border:2px solid var(--bg);display:block}
 .homeMe i[hidden]{display:none}
 .homeLang{padding:6px 13px;border-radius:var(--r-full);border:1px solid var(--edge);
-  background:color-mix(in srgb, var(--card) 62%, transparent);color:var(--tx);
+  min-height:44px;background:color-mix(in srgb, var(--card) 62%, transparent);color:var(--tx);
   font-size:var(--fs-sm);font-weight:700;font-family:inherit;cursor:pointer;
   backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);
   transition:transform var(--mo-1) var(--ease),opacity var(--mo-1) linear}
@@ -1950,7 +1951,7 @@ a.shellCall:active{transform:scale(.94)}
 
 </style>
 <script>window.__FORCE_DEMO__ = true;</script>
-<script>window.BUILD = "v11e70625";</script>
+<script>window.BUILD = "vcf4ff2e3";</script>
 <script>
 if ("serviceWorker" in navigator) addEventListener("load", function(){
   navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
@@ -1978,7 +1979,7 @@ if ("serviceWorker" in navigator) addEventListener("load", function(){
         <circle cx="12" cy="8.4" r="3.6"/>
         <path d="M4.6 20.2c0-3.7 3.3-6.2 7.4-6.2s7.4 2.5 7.4 6.2"/>
       </svg>
-      <i id="homeMeDot" hidden></i>
+      <i id="homeMeDot" hidden aria-hidden="true"></i>
     </button>
     <button type="button" class="homeLang" id="homeLang" aria-label="Change language">EN</button>
   </div>
