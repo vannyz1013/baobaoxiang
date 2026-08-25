@@ -1728,7 +1728,7 @@ a.shellCall:active{transform:scale(.94)}
 
 </style>
 <script>window.__FORCE_DEMO__ = true;</script>
-<script>window.BUILD = "v1ffc6792";</script>
+<script>window.BUILD = "vd003c9a2";</script>
 <script>
 if ("serviceWorker" in navigator) addEventListener("load", function(){
   navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
@@ -2273,6 +2273,36 @@ var EVERYDAY = 127, WEEKDAYS = 62, WEEKEND = 65;   // bit0=Sun ... bit6=Sat
 // ============================================================
 var L = {
 zh: {
+  profileTitle:"\u6211\u7684\u7528\u6237\u540d",
+  profileChoose:"\u9009\u4e00\u4e2a\u7ed9\u670b\u53cb\u770b\u7684\u540d\u5b57\uff0c\u7535\u90ae\u4f1a\u4fdd\u5bc6\u3002",
+  profileName:"\u7528\u6237\u540d",
+  profilePlaceholder:"\u4f8b\u5982 vanny",
+  profileSave:"\u4fdd\u5b58\u7528\u6237\u540d",
+  profileChange:"\u66f4\u6539\u7528\u6237\u540d",
+  profileEmailNote:"\u8fd9\u662f\u4f60\u516c\u5f00\u7684\u540d\u5b57\uff0c\u7535\u90ae\u53ea\u7528\u6765\u767b\u5f55\u3002",
+  profileRules:"3-20 \u4e2a\u5c0f\u5199\u5b57\u6bcd\u3001\u6570\u5b57\u3001\u70b9\u3001\u4e0b\u5212\u7ebf\u6216\u6a2a\u7ebf\u3002",
+  profileBad:"\u8bf7\u9009\u4e00\u4e2a\u6709\u6548\u7684\u7528\u6237\u540d\u3002",
+  profileSaved:"\u7528\u6237\u540d\u5df2\u4fdd\u5b58",
+  friendsTitle:"\u670b\u53cb",
+  friendsSearch:"\u670b\u53cb\u7684\u7528\u6237\u540d",
+  friendsAdd:"\u53d1\u9001\u597d\u53cb\u8bf7\u6c42",
+  friendsNone:"\u8fd8\u6ca1\u6709\u670b\u53cb\u3002",
+  friendsIncoming:"\u60f3\u52a0\u4f60\u4e3a\u597d\u53cb",
+  friendsAccept:"\u63a5\u53d7",
+  friendsDecline:"\u62d2\u7edd",
+  friendsPending:"\u8bf7\u6c42\u7b49\u5f85\u4e2d",
+  friendsShareStudent:"\u5b66\u751f\u8bfe\u8868",
+  friendsShareTeacher:"\u8001\u5e08\u8bfe\u8868",
+  friendsShared:"\u5df2\u5206\u4eab",
+  friendsPrivate:"\u79c1\u4eba",
+  friendsView:"\u67e5\u770b",
+  friendsViewTitle:"\u5206\u4eab\u7684\u8bfe\u8868",
+  friendsNoClasses:"\u8fd9\u4e2a\u8bfe\u8868\u6ca1\u6709\u5206\u4eab\u8bfe\u7a0b\u3002",
+  friendsClose:"\u5173\u95ed\u8bfe\u8868",
+  friendsNeedProfile:"\u5148\u9009\u7528\u6237\u540d\u624d\u80fd\u4f7f\u7528\u670b\u53cb\u529f\u80fd\u3002",
+  friendsSent:"\u597d\u53cb\u8bf7\u6c42\u5df2\u53d1\u9001",
+  friendsFailed:"\u65e0\u6cd5\u66f4\u65b0\u597d\u53cb\u8d44\u6599",
+  friendsNoAccess:"\u8fd9\u4efd\u8bfe\u8868\u662f\u79c1\u4eba\u7684\uff0c\u6216\u5206\u4eab\u5df2\u88ab\u53d6\u6d88\u3002",
   wdLong : ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
   wdShort: ["日","一","二","三","四","五","六"],
   offline: "连不到时钟...",
@@ -2953,6 +2983,7 @@ zh: {
 
   emptyClass:"还没有课", emptyAlarm:"还没有闹钟",
   emptyHint :"用下面两颗按钮：<b>自己设时间</b> 一个一个加，或者 <b>上传时间表</b> 一次过全部搞定",
+  emptyNormalHint:"普通模式是闹钟 / 日历，不是课表。按下面按钮加一个闹钟。",
   emptyBtn  :"&#128228; 上传时间表",
   btnManual :"自己设时间", btnUpload:"上传时间表",
 
@@ -3522,6 +3553,36 @@ en: {
   meGS       :"One tap. Your password stays with Google — Pocket never sees it.",
   meGSoon    :"Student ID and password sign-in come back later. Google is the way in for now.",
   meGGoing   :"Opening Google…",
+  profileTitle:"Your username",
+  profileChoose:"Choose the name your friends will see. Your email stays private.",
+  profileName:"Username",
+  profilePlaceholder:"e.g. vanny",
+  profileSave:"Save username",
+  profileChange:"Change username",
+  profileEmailNote:"This is your public name. Your email is only used to sign in.",
+  profileRules:"3-20 lowercase letters, numbers, dots, underscores or hyphens.",
+  profileBad:"Choose a valid username (3-20 letters/numbers).",
+  profileSaved:"Username saved",
+  friendsTitle:"Friends",
+  friendsSearch:"Friend's username",
+  friendsAdd:"Send friend request",
+  friendsNone:"No friends yet.",
+  friendsIncoming:"Wants to be your friend",
+  friendsAccept:"Accept",
+  friendsDecline:"Decline",
+  friendsPending:"Request pending",
+  friendsShareStudent:"Student timetable",
+  friendsShareTeacher:"Teacher timetable",
+  friendsShared:"shared",
+  friendsPrivate:"private",
+  friendsView:"View",
+  friendsViewTitle:"Shared timetable",
+  friendsNoClasses:"No classes shared in this timetable.",
+  friendsClose:"Close timetable",
+  friendsNeedProfile:"Choose a username first to use Friends.",
+  friendsSent:"Friend request sent",
+  friendsFailed:"Could not update Friends",
+  friendsNoAccess:"This timetable is private or the share was removed.",
   meGFail    :"Google sign-in did not finish. Try again.",
   meBadId    :"Use your student ID (6–10 digits) or a UTAR email address.",
   meShortPw  :"Password must be at least 8 characters.",
@@ -3794,6 +3855,7 @@ en: {
 
   emptyClass:"No classes yet", emptyAlarm:"No alarms yet",
   emptyHint :"Use the two buttons below: <b>set one yourself</b>, or <b>upload your whole timetable</b> in one go",
+  emptyNormalHint:"Normal mode is for alarms and calendars, not class timetables. Add an alarm below.",
   emptyBtn  :"&#128228; Upload timetable",
   btnManual :"Set it myself", btnUpload:"Upload timetable",
 
@@ -5710,6 +5772,107 @@ function lookHtml(){
 // hidden branch that leaves you looking at a screen you cannot act on.
 function authRow(k, title, sub, extra){ return shellRow(k, title, sub, extra); }
 
+var PROFILE_MSG = "", PROFILE_EDIT = false;
+
+function profileHtml(){
+  var n = CLOUD.username || "";
+  if(!n || PROFILE_EDIT){
+    return '<div class="statBox">' +
+      '<p class="shellK">' + t("profileTitle") + '</p>' +
+      '<p class="shellS">' + t("profileChoose") + '</p>' +
+      (PROFILE_MSG ? '<div class="cloudmsg">' + esc(PROFILE_MSG) + '</div>' : '') +
+      '<label class="f"><span>' + t("profileName") + '</span>' +
+      '<input id="profileUsername" type="text" autocomplete="nickname" value="' +
+      esc(n) + '" ' +
+      'autocapitalize="off" spellcheck="false" maxlength="20" placeholder="' +
+      esc(t("profilePlaceholder")) + '"></label>' +
+      '<div class="shellBtns"><button type="button" data-act="profileSave" class="on">' +
+      t("profileSave") + '</button></div>' +
+      '<p class="shellS">' + t("profileRules") + '</p></div>';
+  }
+  return '<div class="statBox">' +
+    '<p class="shellK">' + t("profileTitle") + '</p>' +
+    '<p class="shellT">@' + esc(n) + '</p>' +
+    '<p class="shellS">' + t("profileEmailNote") + '</p>' +
+    (PROFILE_MSG ? '<div class="cloudmsg">' + esc(PROFILE_MSG) + '</div>' : '') +
+    '<div class="shellBtns"><button type="button" data-act="profileEdit">' +
+    t("profileChange") + '</button></div></div>';
+}
+
+function friendShareButton(row, mode){
+  if(!hasRole(mode)) return "";
+  var key = mode === "student" ? "share_student" : "share_teacher";
+  var on = !!row[key];
+  return '<button type="button" data-act="friendAccess" data-id="' +
+    esc(row.friend_id) + '" data-mode="' + mode + '" data-on="' + (on ? "1" : "0") +
+    '"' + (on ? ' class="on"' : '') + '>' +
+    esc(t(mode === "student" ? "friendsShareStudent" : "friendsShareTeacher")) +
+    ': ' + esc(t(on ? "friendsShared" : "friendsPrivate")) + '</button>';
+}
+
+function friendViewButton(row, mode){
+  var key = mode === "student" ? "can_view_student" : "can_view_teacher";
+  if(!row[key]) return "";
+  return '<button type="button" data-act="friendView" data-id="' +
+    esc(row.friend_id) + '" data-mode="' + mode + '">' +
+    esc(t("friendsView")) + ' ' + esc(mode === "student" ? t("mStudent") : t("mTeacher")) + '</button>';
+}
+
+function friendTimetableHtml(){
+  var v = FRIENDS.view;
+  if(!v) return "";
+  var data = v.data || {}, alarms = Array.isArray(data.alarms) ? data.alarms.slice() : [];
+  alarms.sort(function(a,b){ return (a.days - b.days) || byTime(a,b); });
+  var h = '<div class="statBox"><p class="shellK">' + t("friendsViewTitle") +
+    '</p><p class="shellT">@' + esc(v.username || "") + ' · ' +
+    esc(v.mode === "student" ? t("mStudent") : t("mTeacher")) + '</p>';
+  if(!alarms.length) h += '<p class="shellS">' + t("friendsNoClasses") + '</p>';
+  else{
+    h += '<div class="card">';
+    alarms.forEach(function(a){
+      h += '<div class="item"><div class="time">' + pad(a.hour) + ':' + pad(a.minute) +
+        '</div><div class="itxt"><b>' + esc(a.label || t("alarm")) + '</b>' +
+        '<small>' + esc(a.note || daysText(a)) + '</small></div></div>';
+    });
+    h += '</div>';
+  }
+  return h + '<div class="shellBtns"><button type="button" data-act="friendViewClose">' +
+    t("friendsClose") + '</button></div></div>';
+}
+
+function friendsHtml(){
+  if(!CLOUD.username) return '<div class="statBox"><p class="shellS">' +
+    t("friendsNeedProfile") + '</p></div>';
+  var h = '<div class="statBox"><p class="shellK">' + t("friendsTitle") + '</p>';
+  if(FRIENDS.msg) h += '<div class="cloudmsg">' + esc(FRIENDS.msg) + '</div>';
+  h += '<label class="f"><span>' + t("friendsSearch") + '</span>' +
+    '<input id="friendUsername" type="text" autocomplete="off" autocapitalize="off" ' +
+    'spellcheck="false" maxlength="20" placeholder="' + esc(t("profilePlaceholder")) + '"></label>' +
+    '<div class="shellBtns"><button type="button" data-act="friendAdd" class="on">' +
+    t("friendsAdd") + '</button></div>';
+  if(FRIENDS.loading) h += '<p class="shellS">' + t("meWorking") + '</p>';
+  if(FRIENDS.loaded && !FRIENDS.rows.length) h += '<p class="shellS">' + t("friendsNone") + '</p>';
+  FRIENDS.rows.forEach(function(row){
+    var nm = row.username || "?";
+    h += '<div class="statBox" style="margin-top:10px"><p class="shellT">@' + esc(nm) + '</p>';
+    if(row.status !== "accepted"){
+      h += '<p class="shellS">' + esc(row.is_incoming ? t("friendsIncoming") : t("friendsPending")) + '</p>';
+      if(row.is_incoming) h += '<div class="shellBtns">' +
+        '<button type="button" data-act="friendRespond" data-id="' + esc(row.request_id) + '" data-yes="1" class="on">' +
+        t("friendsAccept") + '</button>' +
+        '<button type="button" data-act="friendRespond" data-id="' + esc(row.request_id) + '" data-yes="0">' +
+        t("friendsDecline") + '</button></div>';
+    }else{
+      h += '<div class="shellBtns">' + friendShareButton(row, "student") +
+        friendShareButton(row, "teacher") +
+        friendViewButton(row, "student") + friendViewButton(row, "teacher") + '</div>';
+    }
+    h += '</div>';
+  });
+  h += '</div>' + friendTimetableHtml();
+  return h;
+}
+
 // Google's four-colour G. Drawn here rather than fetched: the page is a
 // single file with no network of its own, and Google's brand rules ask
 // for the real mark rather than an approximation of it.
@@ -5797,7 +5960,7 @@ function meHtml(){
 
   if(!fullyIn() && AUTH.locked){
     html += '<div class="statBox"><p class="shellK">' + t("meLocked") + "</p>" +
-      '<p class="shellT">' + esc(toDisplayName(CLOUD.email)) + "</p>" +
+      '<p class="shellT">' + esc(accountName()) + "</p>" +
       '<div class="shellBtns"><button type="button" data-act="meUnlock" class="on">' +
         t("meUnlockBtn") + '</button>' +
       '<button type="button" data-act="meOut">' + t("meSignOut") + "</button></div></div>";
@@ -5808,8 +5971,11 @@ function meHtml(){
   html += '<div class="statBox">' +
     '<p class="shellK">' + t("meIn") + "</p>" +
     '<p class="shellT" style="font-size:var(--fs-2xl);letter-spacing:-.03em">' +
-      esc(toDisplayName(CLOUD.email)) + "</p>" +
+      esc(accountName()) + "</p>" +
     '<p class="shellS">' + esc(CLOUD.email) + "</p></div>";
+
+  html += profileHtml();
+  html += friendsHtml();
 
   html += authRow(t("me2fa"),
     twoFactorOn() ? t("me2faOn") : t("me2faOff"),
@@ -5960,6 +6126,7 @@ function diagHtml(){
 function authSettle(){
   AUTH.busy = false;
   if(!signedIn()){ AUTH.step = "in"; paintHome(); return Promise.resolve(); }
+  profileLoad().then(function(){ return friendsLoad(); }).catch(function(){ /* optional social tables */ });
   return mfaFactors().then(function(list){
     var ok = mfaVerified(list);
     AUTH.hasFactor = ok.length > 0;
@@ -6633,37 +6800,13 @@ function demoHoliDefault(){
   return { list: [], off: true, remind: 1, hour: 20, minute: 0 };
 }
 
-// The public Pages demo starts with the timetable supplied in docs/我的课表-简短.csv.
-// It is only a first-run convenience: demoLoad() never replaces a normal
-// timetable, and an explicit Reset still returns to the blank state.
+// The public Pages demo starts empty. A shared URL must never ship one person's
+// timetable to every visitor. The owner's existing local copy is left alone;
+// once they sign in, it can be uploaded to their own account.
 function demoSeedTimetable(){
-  var rows = [
-    [10,  0,  2,  60,  0, "EM Tutorial",      "B111"],
-    [12, 30,  2, 180,  1, "MicroP Lab",       "E002B(LAB)"],
-    [16,  0,  2, 120,  0, "EM Lecture",       "H120"],
-    [ 8,  0,  4, 120,  0, "MicroP Lecture",   "EDK2"],
-    [10,  0,  4, 120,  0, "Numerical Lecture","EDK2"],
-    [13,  0,  4, 180,  2, "DSD Lab",          "E018A(LAB)"],
-    [13,  0,  4, 180,  1, "Analog Lab",       "E202A(TELECOM)"],
-    [16,  0,  4,  60,  0, "Analog Tutorial",  "E111"],
-    [12,  0,  8,  60,  0, "MicroP Lecture",   "E111"],
-    [13,  0,  8,  60,  0, "Numerical Tutorial","B213"],
-    [16,  0,  8, 120,  0, "Analog Lecture",   "E111"],
-    [ 8,  0, 16,  60,  0, "Analog Lecture",   "E111"],
-    [ 9,  0, 16, 180,  2, "EM Lab",            "E202A(TELECOM)"],
-    [13,  0, 16, 120,  0, "DSD Lecture",      "E213"],
-    [15,  0, 16,  60,  0, "EM Lecture",       "E111"],
-    [16,  0, 16,  60,  0, "DSD Tutorial",     "E214"],
-    [17,  0, 16,  60,  0, "Numerical Lecture","EDK2"],
-    [14, 30, 32,  60,  0, "DSD Lecture",      "E111"]
-  ];
-  return rows.map(function(r, i){
-    return {
-      id:i + 1, hour:r[0], minute:r[1], days:r[2], dur:r[3],
-      leads:[10], weekRule:r[4], channels:3, owner:1,
-      date:"", enabled:true, label:r[5], note:r[6]
-    };
-  });
+  // Kept as a named hook for old firmware/demo tests, but never bundle a
+  // real person's classes into a URL shared with other people.
+  return [];
 }
 
 function demoSeedEmpty(){
@@ -6678,17 +6821,12 @@ function demoSeedEmpty(){
 function demoSeed(){ return demoSeedEmpty(); }
 
 function demoSeedInitial(){
-  var d = demoSeedEmpty();
-  d.mode = "student";
-  d.roles = 2;
-  d.alarms = demoSeedTimetable();
-  d.nextId = d.alarms.length + 1;
-  return d;
+  return demoSeedEmpty();
 }
 
 // This identifies the shape of fresh demo data. It must never be used as a
 // reason to throw away an existing timetable: old data is user data, not seed data.
-var DEMO_SEED_VER = 4;
+var DEMO_SEED_VER = 5;
 
 // Builds before the real timetable was published carried a recognisable fake
 // week. It is safe to replace that particular sample, but not arbitrary old
@@ -6745,14 +6883,8 @@ function demoLoad(){
 
     if(oldVer !== DEMO_SEED_VER){
       demoArchive(raw, "seed-migration");
-      // The previous public build started empty. Upgrade only that empty
-      // first-run state; a user's real timetable is always left untouched.
-      if(DB.alarms.length === 0){
-        DB.mode = "student";
-        DB.roles = 2;
-        DB.alarms = demoSeedTimetable();
-        DB.nextId = DB.alarms.length + 1;
-      }
+      // Shared links must stay empty for a new visitor. A user's real
+      // timetable is always left untouched during an app update.
       localStorage.setItem("clockDemo", JSON.stringify(DB));
     }
   }catch(e){
@@ -7582,6 +7714,9 @@ function paintModes(){
     bs[i].classList.toggle("on", bs[i].dataset.m === S.mode);
   }
   $("modes").hidden = (shown <= 1);   // one role only means no switcher row
+  // CSV/import and timetable controls are for class modes only. Normal mode
+  // is an alarm list/calendar, so it must not look like a student timetable.
+  $("btnImport").hidden = !modeCfg(S.mode).wk;
   paintRoleBtn();
   paintQuietBtn();
   paintBody();
@@ -7997,15 +8132,16 @@ function paintBody(){
       '<div class="card"><div class="empty"><div class="em">' +
       (cfg.wk ? "&#128197;" : "&#9200;") + '</div>' +
       '<p>' + (cfg.wk ? t("emptyClass") : t("emptyAlarm")) + '</p>' +
-      '<p style="font-size:12px;margin-bottom:18px">' + t("emptyHint") + '</p>' +
-      '<button class="btn-p" id="emptyImport" style="padding:13px 24px;border:0;' +
+      '<p style="font-size:12px;margin-bottom:18px">' +
+      t(cfg.wk ? "emptyHint" : "emptyNormalHint") + '</p>' +
+      '<button class="btn-p" id="emptyAction" style="padding:13px 24px;border:0;' +
       'border-radius:12px;font-size:14px;font-weight:700;font-family:inherit;' +
-      'cursor:pointer">' + t("emptyBtn") + '</button>' +
+      'cursor:pointer">' + t(cfg.wk ? "emptyBtn" : "btnManual") + '</button>' +
       (cfg.wk ? '<button class="btn-s" id="emptyGen" style="margin-top:10px;padding:13px 24px;border:0;' +
       'border-radius:12px;font-size:14px;font-weight:700;font-family:inherit;' +
       'cursor:pointer">' + t("genTt") + '</button>' : "") +
       '</div></div>';
-    $("emptyImport").onclick = openImport;
+    $("emptyAction").onclick = cfg.wk ? openImport : function(){ openEdit(null); };
     if($("emptyGen")) $("emptyGen").onclick = applyGenTt;
     return;
   }
@@ -8604,18 +8740,15 @@ function shownOnDay(dayI, w){
 //  The URL and key are pasted by the user (and kept on this phone), not hard-coded:
 //  switching to another Supabase project needs no reflash.
 // ============================================================
-// karwan5880: no hosted backend. Cloud UI stays in the file but stays off.
-// The old cloud era: a sheet where you pasted a URL and a key, hosted Web
-// Push, and a timetable that lived in Postgres. All of that stays off.
-// The account screen added on 2026-08-24 is NOT this -- it reads
-// DEFAULT_CLOUD_URL / DEFAULT_CLOUD_KEY and talks to Supabase Auth only.
-var CLOUD_OFF = true;
+// The shared firmware build keeps the old cloud controls present but off.
+// The public Pages build flips both flags in tools/build-demo.js: sign-in,
+// account-scoped timetable sync, profiles, and friends then use Supabase with
+// row-level security. The ESP32 remains device-local.
+var CLOUD_OFF = false;
 
-// Nothing on this phone is uploaded. `CLOUD.on` means "there is a
-// session", not "we are syncing" -- keep the two apart, because the day
-// sync is switched on it should be a decision with its own tables and its
-// own row-level security, not a side effect of signing in.
-var SYNC_OFF = true;
+// `CLOUD.on` means "there is a session"; `SYNC_OFF` is the build switch for
+// whether the timetable is stored in the account's user_state row.
+var SYNC_OFF = false;
 
 // Sign-in is Google and nothing else for now (2026-08-24). The password
 // form, the student-ID rules and the address-building around them are
@@ -8687,8 +8820,10 @@ function emailToUser(e){
   return at > 0 ? e.slice(0, at) : e;
 }
 
-var CLOUD = { url:"", key:"", token:"", refresh:"", uid:"", email:"", on:false };
+var CLOUD = { url:"", key:"", token:"", refresh:"", uid:"", email:"",
+              username:"", on:false };
 var cloudTab = "login", cloudMsg = null, cloudSaveTimer = null;
+var FRIENDS = { rows:[], loaded:false, loading:false, msg:"", view:null };
 
 // * NEVER write upward before successfully reading the cloud copy *
 //   For the first second or two after opening the app, what is on screen may still be empty
@@ -8719,8 +8854,9 @@ function cloudLoadCfg(){
     CLOUD.refresh = localStorage.getItem("cloudRef")   || "";
     CLOUD.uid     = localStorage.getItem("cloudUid")   || "";
     CLOUD.email   = localStorage.getItem("cloudEmail") || "";
+    CLOUD.username= localStorage.getItem("cloudUsername") || "";
   }catch(e){}
-  CLOUD.name = emailToUser(CLOUD.email);
+  CLOUD.name = CLOUD.username || emailToUser(CLOUD.email);
   if(!CLOUD.url) CLOUD.url = DEFAULT_CLOUD_URL;
   if(!CLOUD.key) CLOUD.key = DEFAULT_CLOUD_KEY;
   CLOUD.on = !!(CLOUD.url && CLOUD.key && CLOUD.token && CLOUD.uid);
@@ -8733,6 +8869,7 @@ function cloudSaveCfg(){
     localStorage.setItem("cloudRef",   CLOUD.refresh);
     localStorage.setItem("cloudUid",   CLOUD.uid);
     localStorage.setItem("cloudEmail", CLOUD.email);
+    localStorage.setItem("cloudUsername", CLOUD.username);
   }catch(e){}
   CLOUD.on = !!(CLOUD.url && CLOUD.key && CLOUD.token && CLOUD.uid);
 }
@@ -8813,6 +8950,86 @@ function cloudFetch(path, opt, withAuth){
       }
       return j;
     });
+  });
+}
+
+// ---------- Account profile and friends ----------
+// The email proves the account to Supabase. It is not the public name shown
+// to friends; that is a separate username chosen by the user.
+function accountName(){
+  return CLOUD.username || CLOUD.name || toDisplayName(CLOUD.email) || "?";
+}
+
+function cloudRpc(name, body){
+  return cloudFetch("/rest/v1/rpc/" + name, {
+    method:"POST", body: JSON.stringify(body || {})
+  }, true);
+}
+
+function profileLoad(){
+  if(SYNC_OFF || !CLOUD.on || !CLOUD.uid) return Promise.resolve("");
+  return cloudFetch("/rest/v1/profiles?select=username&user_id=eq." +
+                    encodeURIComponent(CLOUD.uid), {}, true)
+    .then(function(rows){
+      CLOUD.username = rows && rows.length ? normUser(rows[0].username) : "";
+      CLOUD.name = CLOUD.username || emailToUser(CLOUD.email);
+      cloudSaveCfg();
+      paintCloudBtn();
+      paintHome();
+      return CLOUD.username;
+    });
+}
+
+function profileSave(username){
+  username = normUser(username);
+  if(!validUser(username)) return Promise.reject(new Error("invalid username"));
+  return cloudFetch("/rest/v1/profiles?on_conflict=user_id", {
+    method:"POST",
+    headers:{ "Prefer":"resolution=merge-duplicates,return=minimal" },
+    body: JSON.stringify({ user_id:CLOUD.uid, username:username })
+  }, true).then(function(){
+    CLOUD.username = username;
+    CLOUD.name = username;
+    cloudSaveCfg();
+    return profileLoad();
+  });
+}
+
+function friendsLoad(){
+  if(SYNC_OFF || !CLOUD.on || !CLOUD.uid || !CLOUD.username)
+    return Promise.resolve([]);
+  FRIENDS.loading = true;
+  return cloudRpc("my_friend_list", {})
+    .then(function(rows){
+      FRIENDS.rows = Array.isArray(rows) ? rows : [];
+      FRIENDS.loaded = true; FRIENDS.msg = "";
+      return FRIENDS.rows;
+    })
+    .catch(function(err){
+      FRIENDS.loaded = false;
+      FRIENDS.msg = String(err && err.message || "");
+      throw err;
+    })
+    .then(function(rows){ FRIENDS.loading = false; return rows; },
+          function(err){ FRIENDS.loading = false; throw err; });
+}
+
+function friendSend(username){
+  return cloudRpc("send_friend_request", { p_username: normUser(username) });
+}
+function friendRespond(id, accept){
+  return cloudRpc("respond_friend_request", {
+    p_request_id: id, p_accept: !!accept
+  });
+}
+function friendAccess(friendId, mode, enabled){
+  return cloudRpc("set_timetable_access", {
+    p_friend_id: friendId, p_owner_mode: mode, p_enabled: !!enabled
+  });
+}
+function friendView(friendId, mode){
+  return cloudRpc("get_friend_timetable", {
+    p_friend_id: friendId, p_owner_mode: mode
   });
 }
 
@@ -9020,7 +9237,8 @@ function pkEnrol(){
   return navigator.credentials.create({ publicKey: {
     challenge: rand32(),
     rp: { name: "Pocket" },
-    user: { id: uid, name: CLOUD.email || "pocket", displayName: toDisplayName(CLOUD.email) },
+    user: { id: uid, name: CLOUD.username || CLOUD.email || "pocket",
+            displayName: accountName() },
     pubKeyCredParams: [{ type:"public-key", alg:-7 }, { type:"public-key", alg:-257 }],
     authenticatorSelection: {
       authenticatorAttachment: "platform",
@@ -9136,11 +9354,21 @@ function cloudLogin(email, pw){
 var refreshTimer = null;
 
 function cloudSession(j){
+  var oldUid = CLOUD.uid;
   CLOUD.token   = j.access_token || "";
   CLOUD.refresh = j.refresh_token || "";
   CLOUD.uid     = (j.user && j.user.id) || jwtSub(CLOUD.token);
   CLOUD.email   = (j.user && j.user.email) || jwtEmail(CLOUD.token) || CLOUD.email;
-  CLOUD.name    = emailToUser(CLOUD.email);
+  CLOUD.name    = CLOUD.username || emailToUser(CLOUD.email);
+  if(oldUid && CLOUD.uid && oldUid !== CLOUD.uid){
+    // A browser can move from one account to another without a full tab
+    // restart. Never let the previous account's pending save or readiness
+    // state cross that boundary.
+    cloudReady = false;
+    if(cloudSaveTimer){ clearTimeout(cloudSaveTimer); cloudSaveTimer = null; }
+    CLOUD.username = "";
+    FRIENDS.rows = []; FRIENDS.loaded = false; FRIENDS.view = null;
+  }
   cloudSaveCfg();
   scheduleRefresh();
   return j;
@@ -9209,8 +9437,9 @@ function cloudRecover(email){
 
 function cloudLogout(){
   if(refreshTimer){ clearTimeout(refreshTimer); refreshTimer = null; }
-  CLOUD.token = CLOUD.refresh = CLOUD.uid = CLOUD.email = "";
-  try{ localStorage.removeItem("cloudCache"); }catch(e){}
+  if(cloudSaveTimer){ clearTimeout(cloudSaveTimer); cloudSaveTimer = null; }
+  CLOUD.token = CLOUD.refresh = CLOUD.uid = CLOUD.email = CLOUD.username = "";
+  cloudReady = false;
   cloudSaveCfg();
   DEMO = false; demoTried = false; everOnline = false;
   location.reload();
@@ -9230,25 +9459,37 @@ function skipsToList(){
 // Keep a local copy of whatever the cloud last returned.
 // It carries us through a bad network, or the moment before the first connection --
 // far better than showing a blank app (which reads as "my data is gone").
-function cloudCacheSave(data){
-  try{ localStorage.setItem("cloudCache", JSON.stringify(data)); }catch(e){}
+function cloudCacheKey(uid){
+  uid = String(uid || CLOUD.uid || "");
+  return uid ? "cloudCache:" + encodeURIComponent(uid) : "";
 }
-function cloudCacheLoad(){
+function cloudCacheSave(data){
+  var key = cloudCacheKey();
+  if(!key) return;
+  try{ localStorage.setItem(key, JSON.stringify(data)); }catch(e){}
+}
+function cloudCacheLoad(uid){
+  var key = cloudCacheKey(uid);
+  if(!key) return null;
   try{
-    var r = localStorage.getItem("cloudCache");
+    var r = localStorage.getItem(key);
     return r ? JSON.parse(r) : null;
   }catch(e){ return null; }
 }
 
 // ---------- Reading and writing the whole state ----------
 function cloudPull(){
-  if(SYNC_OFF) return Promise.reject(new Error("sync off"));
-  return cloudFetch("/rest/v1/user_state?select=data&user_id=eq." + CLOUD.uid)
+  if(SYNC_OFF || !CLOUD.on || !CLOUD.uid)
+    return Promise.reject(new Error("sync off"));
+  return cloudFetch("/rest/v1/user_state?select=data&user_id=eq." +
+                    encodeURIComponent(CLOUD.uid))
     .then(function(rows){
-      // A trigger creates the row at sign-up; if it did not, create it here
+      // An empty result is a real, safe answer. Do not PATCH an empty state
+      // here: the caller may still have an older local timetable to offer the
+      // user, especially after an OAuth redirect opened a fresh page.
       if(!rows || !rows.length){
-        cloudReady = true;                 // the cloud is definitely empty, so writing is safe
-        return cloudPush(demoSeedEmpty()).then(function(){ return null; });
+        cloudReady = true;
+        return null;
       }
       cloudCacheSave(rows[0].data);
       cloudReady = true;                   // we have seen the cloud copy, and only now may we write back
@@ -9257,25 +9498,20 @@ function cloudPull(){
 }
 
 function cloudPush(data){
-  return cloudFetch(
-    "/rest/v1/user_state?user_id=eq." + CLOUD.uid,
-    { method:"PATCH", headers:{ "Prefer":"return=minimal" },
-      body: JSON.stringify({ data: data }) }
-  ).catch(function(err){
-    // The row does not exist yet (the trigger never ran) -> insert it
-    if(err.status === 404 || err.status === 406){
-      return cloudFetch("/rest/v1/user_state", {
-        method:"POST", headers:{ "Prefer":"return=minimal" },
-        body: JSON.stringify({ user_id: CLOUD.uid, data: data })
-      });
-    }
-    throw err;
+  // Upsert is important here. A PATCH matching zero rows is still a
+  // successful HTTP response in PostgREST, so PATCH-then-insert can silently
+  // lose the first save for a brand-new account.
+  return cloudFetch("/rest/v1/user_state?on_conflict=user_id", {
+    method:"POST",
+    headers:{ "Prefer":"resolution=merge-duplicates,return=minimal" },
+    body: JSON.stringify({ user_id: CLOUD.uid, data: data })
   });
 }
 
 // Something changed -> push it 800ms later (a burst of edits does not become a burst of requests)
 function cloudScheduleSave(){
-  if(SYNC_OFF) return;   // belt and braces: nothing leaves this phone
+  if(SYNC_OFF || !CLOUD.on) return;
+  // belt and braces: nothing leaves this phone unless an account is active
   // The cloud copy has not been read yet -> save locally only and wait for cloudPull().
   // Without this line, the /api/mode the app sends on startup would push an empty state up.
   if(!cloudReady){ cloudCacheSave(DB); return; }
@@ -9512,7 +9748,7 @@ function paintCloudBtn(){
   if(CLOUD_OFF){ b.hidden = true; return; }
   b.hidden = false;
   b.classList.toggle("on", CLOUD.on);
-  b.title = CLOUD.on ? CLOUD.email : t("cTitle");
+  b.title = CLOUD.on ? accountName() : t("cTitle");
 }
 
 function cloudSay(msg, kind){
@@ -9786,9 +10022,8 @@ $("cloudClose").onclick = function(){ closeSheets(); };
 //  The two mode families do not see the same views.
 //
 //    Normal mode has no notion of "this session" -- cancelling one, moving a
-//    room, odd/even weeks: none of it applies. So the timetable page is, for
-//    normal mode, a strangely shaped empty grid. It gets a plain list instead
-//    (the phone-clock kind), and lands on it by default.
+//    room, odd/even weeks, or a class timetable: none of it applies. It gets
+//    the plain alarm/calendar views instead.
 //
 //    For student / teacher the timetable page is already a list grouped by
 //    day, so a second plain list would only turn four tabs into five.
@@ -9816,6 +10051,7 @@ function curDay(){ return S.cursor === null ? idxOf(nowDev()) : S.cursor; }
 // remember = false -> only a temporary switch (pressing "timetable only", say),
 // so it must not overwrite the view the user picked
 function setView(v, remember){
+  if(views().indexOf(v) < 0) v = views()[0];
   var f = viewFam();
   S.view[f] = v;
   if(remember !== false){
@@ -11575,6 +11811,7 @@ function applyStatic(){
   $("btnAddTx").textContent    = t("btnManual");
   $("btnAdd").hidden           = S.quiet;
   $("btnImportTx").textContent = t("btnUpload");
+  $("btnImport").hidden        = !modeCfg(S.mode).wk;
 
   // The edit sheet
   $("lbLead").textContent   = t("fLead");
@@ -12110,6 +12347,61 @@ $("stubStage").onclick = function(e){
     }).then(done, done);
     return;
   }
+  if(act === "profileEdit"){
+    PROFILE_EDIT = true; PROFILE_MSG = ""; paintHome(); return;
+  }
+  if(act === "profileSave"){
+    var pn = String(($("profileUsername") || {}).value || "").trim();
+    if(!validUser(pn)){ PROFILE_MSG = t("profileBad"); paintHome(); return; }
+    PROFILE_MSG = t("meWorking"); paintHome();
+    profileSave(pn)
+      .then(function(){ PROFILE_EDIT = false; PROFILE_MSG = ""; FRIENDS.loaded = false;
+        return friendsLoad(); })
+      .then(function(){ paintHome(); toast(t("profileSaved")); })
+      .catch(function(err){ PROFILE_MSG = String(err && err.message || t("profileBad")); paintHome(); });
+    return;
+  }
+  if(act === "friendAdd"){
+    var fn = String(($("friendUsername") || {}).value || "").trim();
+    if(!validUser(fn)){ FRIENDS.msg = t("profileBad"); paintHome(); return; }
+    FRIENDS.msg = t("meWorking"); paintHome();
+    friendSend(fn)
+      .then(function(){ FRIENDS.loaded = false; return friendsLoad(); })
+      .then(function(){ paintHome(); toast(t("friendsSent")); })
+      .catch(function(err){ FRIENDS.msg = String(err && err.message || t("friendsFailed")); paintHome(); });
+    return;
+  }
+  if(act === "friendRespond"){
+    FRIENDS.msg = t("meWorking"); paintHome();
+    friendRespond(btn.dataset.id, btn.dataset.yes === "1")
+      .then(function(){ FRIENDS.loaded = false; return friendsLoad(); })
+      .then(function(){ paintHome(); })
+      .catch(function(err){ FRIENDS.msg = String(err && err.message || t("friendsFailed")); paintHome(); });
+    return;
+  }
+  if(act === "friendAccess"){
+    var fOn = btn.dataset.on !== "1";
+    FRIENDS.msg = t("meWorking"); paintHome();
+    friendAccess(btn.dataset.id, btn.dataset.mode, fOn)
+      .then(function(){ FRIENDS.loaded = false; return friendsLoad(); })
+      .then(function(){ paintHome(); toast(t(fOn ? "friendsShared" : "friendsPrivate")); })
+      .catch(function(err){ FRIENDS.msg = String(err && err.message || t("friendsFailed")); paintHome(); });
+    return;
+  }
+  if(act === "friendView"){
+    FRIENDS.msg = t("meWorking"); paintHome();
+    friendView(btn.dataset.id, btn.dataset.mode)
+      .then(function(v){
+        if(Array.isArray(v)) v = v[0];
+        if(!v) throw new Error(t("friendsNoAccess"));
+        FRIENDS.view = v; FRIENDS.msg = ""; paintHome();
+      })
+      .catch(function(err){ FRIENDS.msg = String(err && err.message || t("friendsNoAccess")); paintHome(); });
+    return;
+  }
+  if(act === "friendViewClose"){
+    FRIENDS.view = null; paintHome(); return;
+  }
   if(act === "meGoogle"){
     if(AUTH.busy) return;
     oauthStart("google");
@@ -12275,6 +12567,11 @@ cloudLoadCfg();
 // passkey lock below, which would otherwise lock the sign-in that just
 // this second happened.
 var backFromOauth = oauthReturn();
+if(signedIn()){
+  profileLoad()
+    .then(function(){ return friendsLoad(); })
+    .catch(function(){ /* the account and timetable can still work if social tables are not installed yet */ });
+}
 paintCloudBtn();
 // A session that survived a reload still has to be unlocked if a passkey
 // was enrolled on this device, and the token may be stale.
@@ -12284,8 +12581,15 @@ if(signedIn() && !backFromOauth){
   refreshIfStale();
 }
 if(!SYNC_OFF && CLOUD.on){
+  // OAuth returns to a fresh document. Load the anonymous/local copy as a
+  // migration candidate before cloud mode replaces DB. It is only offered
+  // when the account's cloud row is empty; it is never pushed silently.
+  var cloudLocal = null;
+  if(!DB){
+    try{ demoLoad(); cloudLocal = DB; DEMO = false; }catch(e){}
+  }
   // Put last time's data up first, rather than making the user stare at a blank screen waiting for the network
-  var cached = cloudCacheLoad();
+  var cached = cloudCacheLoad(CLOUD.uid);
   if(cached) enterCloud(cached);
 
   scheduleRefresh();
@@ -12296,8 +12600,28 @@ if(!SYNC_OFF && CLOUD.on){
       return cloudRefresh().then(cloudPull);      // token expired, so swap it and pull again
     })
     .then(function(data){
-      if(data) enterCloud(data);
       applyStatic();
+      var cloudEmpty = !data || !data.alarms || !data.alarms.length;
+      if(data && !cloudEmpty) enterCloud(data);
+      else{
+        var blank = data || demoSeedEmpty();
+        enterCloud(blank);
+        if(cloudEmpty && cloudLocal && cloudLocal.alarms && cloudLocal.alarms.length){
+          askSheet(
+            t("cUpTitle"), t("cUpDesc", cloudLocal.alarms.length),
+            t("cUpYes"), t("cUpNo"),
+            function(){
+              enterCloud(cloudLocal);
+              cloudPush(cloudLocal).then(function(){ toast(t("cUpOk", cloudLocal.alarms.length)); })
+                .catch(function(){ toast(t("cSaveFail")); });
+            },
+            function(){
+              cloudPush(blank).catch(function(){ toast(t("cSaveFail")); });
+            });
+        }else{
+          cloudPush(blank).catch(function(){});
+        }
+      }
       return pull().then(pullSem).then(pullSkips).then(pullAlarms).then(pullRooms).then(pullHoli);
     })
     .catch(function(err){
