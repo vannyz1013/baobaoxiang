@@ -1728,7 +1728,7 @@ a.shellCall:active{transform:scale(.94)}
 
 </style>
 <script>window.__FORCE_DEMO__ = true;</script>
-<script>window.BUILD = "v0faac976";</script>
+<script>window.BUILD = "v1ffc6792";</script>
 <script>
 if ("serviceWorker" in navigator) addEventListener("load", function(){
   navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
@@ -6634,7 +6634,7 @@ function demoHoliDefault(){
 }
 
 // The public Pages demo starts with the timetable supplied in docs/我的课表-简短.csv.
-// It is only a first-run convenience: demoLoad() never replaces a non-empty
+// It is only a first-run convenience: demoLoad() never replaces a normal
 // timetable, and an explicit Reset still returns to the blank state.
 function demoSeedTimetable(){
   var rows = [
@@ -6690,6 +6690,20 @@ function demoSeedInitial(){
 // reason to throw away an existing timetable: old data is user data, not seed data.
 var DEMO_SEED_VER = 4;
 
+// Builds before the real timetable was published carried a recognisable fake
+// week. It is safe to replace that particular sample, but not arbitrary old
+// data: a user's own timetable must survive an app update.
+function demoLooksLikeLegacySample(list){
+  var hits = 0;
+  (list || []).forEach(function(a){
+    var label = String(a && a.label || "");
+    var note  = String(a && a.note  || "");
+    if(/^(English|Maths|Physics|Programming) (Lecture|Tutorial|Lab)$/.test(label) &&
+       /^(A101|A204|B203|C|Lab)/.test(note)) hits++;
+  });
+  return hits >= 4;
+}
+
 function demoLoad(){
   var raw = "";
   try { raw = localStorage.getItem("clockDemo") || ""; }
@@ -6704,6 +6718,16 @@ function demoLoad(){
     // a real timetable. Keep every alarm and only repair missing metadata.
     var oldVer = DB.seedVer;
     if(!Array.isArray(DB.alarms)) DB.alarms = [];
+
+    // The old phone screenshot showed this exact fake sample. Keep a recovery
+    // copy, then install the owner's timetable instead of preserving fiction.
+    if(demoLooksLikeLegacySample(DB.alarms)){
+      demoArchive(raw, "replace-legacy-sample");
+      DB = demoSeedInitial();
+      localStorage.setItem("clockDemo", JSON.stringify(DB));
+      return;
+    }
+
     if(!DB.nextId || !isFinite(DB.nextId)){
       var maxId = 0;
       DB.alarms.forEach(function(a){
