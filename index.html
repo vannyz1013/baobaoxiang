@@ -1699,7 +1699,7 @@ a.shellCall:active{transform:scale(.94)}
 
 </style>
 <script>window.__FORCE_DEMO__ = true;</script>
-<script>window.BUILD = "vf989a940";</script>
+<script>window.BUILD = "va47b334f";</script>
 <script>
 if ("serviceWorker" in navigator) addEventListener("load", function(){
   navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
@@ -6717,7 +6717,9 @@ function restoreDemoRecovery(){
   var raw = "";
   try{ raw = localStorage.getItem("clockDemoRecovery") || ""; }catch(e){}
   if(!raw){ toast(t("imNoBackup")); return; }
-  restoreDemoBackupText(JSON.stringify({data: JSON.parse(raw)}));
+  try{
+    restoreDemoBackupText(JSON.stringify({data: JSON.parse(raw)}));
+  }catch(e){ toast(t("imRestoreBad")); }
 }
 
 function enterDemo(){
