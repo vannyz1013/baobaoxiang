@@ -6,7 +6,7 @@
      interactive-widget is a Chrome-only key, and the keyboard is handled by
      visualViewport now, so it bought nothing and risked a strict parser
      throwing the whole declaration -- cover included -- away. -->
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#00a0e9">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -869,7 +869,10 @@ input[type=time]{font-size:24px;text-align:center;font-weight:300;
 .trange{display:flex;align-items:center;gap:8px}
 .trange input{flex:1;min-width:0;font-size:20px;padding:11px 4px}
 .trange .dash{flex:none;color:var(--tx3);font-size:17px}
-input:focus,select:focus,textarea:focus{outline:0;border-color:var(--ac)}
+input:focus,select:focus,textarea:focus{border-color:var(--ac)}
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--ac);outline-offset:2px}
+select{background-color:var(--card2);color:var(--tx)}
 
 /* Weekday chips */
 .days{display:flex;gap:6px}
@@ -1126,8 +1129,41 @@ body[data-wall="dora-pastel"],
 html[data-wall="dora-pirate"],
 body[data-wall="dora-pirate"],
 #pocketHome[data-wall="dora-pirate"]{--wallEnd:#0c5a89;background-color:#0c5a89;background-image:
-  linear-gradient(180deg,rgba(2,30,58,.03) 0%,rgba(2,30,58,.24) 100%),
-  url("doraemon-pirate.svg");background-size:cover;background-position:center;background-repeat:no-repeat}
+  radial-gradient(48% 70% at 50% 45%,rgba(5,42,63,.42),rgba(5,42,63,0) 76%),
+  linear-gradient(180deg,rgba(2,30,58,.08) 0%,rgba(2,30,58,.34) 100%),
+  url("doraemon-pirate.svg");background-size:cover;background-position:center top;background-repeat:no-repeat}
+html[data-wall="dora-night"],
+body[data-wall="dora-night"],
+#pocketHome[data-wall="dora-night"]{--wallEnd:#0b2943;background-color:#0b2943;background-image:
+  radial-gradient(2px 2px at 12% 18%,rgba(255,255,255,.86) 0 50%,transparent 55%),
+  radial-gradient(2px 2px at 29% 31%,rgba(255,255,255,.7) 0 50%,transparent 55%),
+  radial-gradient(2px 2px at 77% 16%,rgba(255,255,255,.8) 0 50%,transparent 55%),
+  radial-gradient(2px 2px at 91% 38%,rgba(255,255,255,.64) 0 50%,transparent 55%),
+  radial-gradient(25% 25% at 84% 17%,rgba(188,231,246,.36),transparent 68%),
+  linear-gradient(180deg,#183f5c 0%,#15506d 52%,#0b2943 100%);background-size:auto;background-position:center;background-repeat:no-repeat}
+html[data-wall="dora-meadow"],
+body[data-wall="dora-meadow"],
+#pocketHome[data-wall="dora-meadow"]{--wallEnd:#6da979;background-color:#6da979;background-image:
+  radial-gradient(22% 15% at 12% 18%,rgba(255,255,255,.85) 0 48%,transparent 50%),
+  radial-gradient(25% 17% at 86% 22%,rgba(255,255,255,.78) 0 47%,transparent 49%),
+  radial-gradient(68% 30% at 18% 94%,#91c98d 0 55%,transparent 57%),
+  radial-gradient(65% 30% at 88% 92%,#6da979 0 55%,transparent 57%),
+  linear-gradient(180deg,#bfeaf0 0%,#d9f2e8 55%,#9ace91 100%);background-size:auto;background-position:center;background-repeat:no-repeat}
+html[data-wall="dora-candy"],
+body[data-wall="dora-candy"],
+#pocketHome[data-wall="dora-candy"]{--wallEnd:#c889b4;background-color:#c889b4;background-image:
+  radial-gradient(2.5% 3% at 14% 20%,rgba(255,255,255,.8) 0 48%,transparent 52%),
+  radial-gradient(2.5% 3% at 87% 18%,rgba(255,255,255,.8) 0 48%,transparent 52%),
+  radial-gradient(25% 35% at 12% 86%,rgba(255,190,222,.75),transparent 70%),
+  radial-gradient(28% 38% at 90% 82%,rgba(189,169,240,.6),transparent 70%),
+  linear-gradient(145deg,#f8d6e8 0%,#e9c7ed 52%,#c889b4 100%);background-size:auto;background-position:center;background-repeat:no-repeat}
+
+/* Dark wallpapers need their own label treatment. A small translucent label
+   plate keeps words readable over waves or stars without covering the icons. */
+#pocketHome[data-wall="dora-pirate"] .homeTile .name,
+#pocketHome[data-wall="dora-night"] .homeTile .name{
+  color:#fff;background:rgba(4,25,40,.48);border-radius:999px;padding:2px 6px 3px;
+  text-shadow:0 1px 2px rgba(0,0,0,.6);font-weight:700}
 
 /* Only the home screen ends in the wallpaper. Every other screen ends in
    --bg, so the canvas beneath it has to as well -- otherwise the strip
@@ -1164,6 +1200,16 @@ body:not(.at-home){background-color:var(--bg)}
 .shopSwatch[data-wall-preview="dora-cloud"]{background:radial-gradient(18px 12px at 25% 35%,#fff 0 55%,transparent 57%),linear-gradient(180deg,#f0fcff,#b7e5f6) !important}
 .shopSwatch[data-wall-preview="dora-pastel"]{background:linear-gradient(145deg,#dff7ff,#f4d9eb,#dcb9dc) !important}
 .shopSwatch[data-wall-preview="dora-pirate"]{background-image:url("doraemon-pirate.svg") !important;background-size:cover !important;background-position:center !important}
+.shopSwatch[data-wall-preview="dora-night"]{background:
+  radial-gradient(2px 2px at 25% 25%,#fff 0 50%,transparent 55%),
+  radial-gradient(2px 2px at 76% 18%,#fff 0 50%,transparent 55%),
+  linear-gradient(180deg,#183f5c,#0b2943) !important}
+.shopSwatch[data-wall-preview="dora-meadow"]{background:
+  radial-gradient(22% 28% at 18% 24%,#fff 0 47%,transparent 49%),
+  linear-gradient(180deg,#bfeaf0 0 58%,#8fca8d 59% 100%) !important}
+.shopSwatch[data-wall-preview="dora-candy"]{background:
+  radial-gradient(24% 34% at 12% 82%,#ffc0df,transparent 70%),
+  linear-gradient(145deg,#f8d6e8,#e9c7ed,#c889b4) !important}
 .shopSwatch i{width:26px;height:26px;border-radius:8px;display:block;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 4px 10px -6px rgba(10,30,60,.8)}
 .shopMeta{padding:var(--sp-3);display:flex;flex-direction:column;gap:6px;flex:1}
@@ -1433,7 +1479,7 @@ body.editing .homePager{touch-action:none}
      its column and spill into the gap -- iOS does this too -- so a long
      name is not clipped at the icon's own width. */
   margin:0;width:calc(100% + var(--col-gap));
-  font-size:var(--fs-xs);font-weight:600;line-height:1.3;
+  font-size:13px;font-weight:700;line-height:1.3;
   letter-spacing:-.005em;text-align:center;color:var(--tx);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
@@ -1904,7 +1950,7 @@ a.shellCall:active{transform:scale(.94)}
 
 </style>
 <script>window.__FORCE_DEMO__ = true;</script>
-<script>window.BUILD = "vd203fc1c";</script>
+<script>window.BUILD = "v11e70625";</script>
 <script>
 if ("serviceWorker" in navigator) addEventListener("load", function(){
   navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
@@ -1934,7 +1980,7 @@ if ("serviceWorker" in navigator) addEventListener("load", function(){
       </svg>
       <i id="homeMeDot" hidden></i>
     </button>
-    <button type="button" class="homeLang" id="homeLang">EN</button>
+    <button type="button" class="homeLang" id="homeLang" aria-label="Change language">EN</button>
   </div>
   <div id="homeHits" hidden></div>
   <button type="button" class="homeNow" id="homeNow"></button>
@@ -1999,10 +2045,10 @@ if ("serviceWorker" in navigator) addEventListener("load", function(){
 
   <div class="clock">
     <button type="button" class="homebtn" id="homeBtn" aria-label="Home">⌂</button>
-    <button class="langbtn" id="langBtn">EN</button>
-    <button class="themebtn" id="themeBtn">&#127912;</button>
-    <button class="helpbtn" id="helpBtn">?</button>
-    <button class="cloudbtn" id="cloudBtn" hidden>&#9729;</button>
+    <button class="langbtn" id="langBtn" aria-label="Change language">EN</button>
+    <button class="themebtn" id="themeBtn" aria-label="Choose theme">&#127912;</button>
+    <button class="helpbtn" id="helpBtn" aria-label="Help">?</button>
+    <button class="cloudbtn" id="cloudBtn" aria-label="Cloud account" hidden>&#9729;</button>
     <div class="dora" id="doraBox" aria-hidden="true"></div>
     <div class="t"><span id="hm">--:--</span><span class="sec" id="ss">--</span></div>
     <div class="wd" id="wd">&mdash;</div>
@@ -2395,7 +2441,7 @@ if ("serviceWorker" in navigator) addEventListener("load", function(){
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <script>
 "use strict";
@@ -2892,6 +2938,9 @@ zh: {
   wDoraCloud :"\u54c6\u5566A\u68a6\u00b7\u4e91\u6735",
   wDoraPastel:"\u54c6\u5566A\u68a6\u00b7\u7c89\u5f69",
   wDoraPirate:"\u54c6\u5566A\u68a6\u00b7\u6d77\u76d7",
+  wDoraNight :"\u54c6\u5566A\u68a6\u00b7\u591c\u7a7a",
+  wDoraMeadow:"\u54c6\u5566A\u68a6\u00b7\u8349\u5730",
+  wDoraCandy :"\u54c6\u5566A\u68a6\u00b7\u7cd6\u679c",
   kFlat      :"原色",
   kGlass     :"磨砂玻璃",
   kInk       :"线条",
@@ -3763,6 +3812,9 @@ en: {
   wDoraCloud :"Doraemon Clouds",
   wDoraPastel:"Doraemon Pastel",
   wDoraPirate:"Doraemon Pirate",
+  wDoraNight :"Doraemon Night",
+  wDoraMeadow:"Doraemon Meadow",
+  wDoraCandy :"Doraemon Candy",
   kFlat      :"Flat",
   kGlass     :"Glass",
   kInk       :"Outline",
@@ -5898,7 +5950,6 @@ function lostHtml(){
 // trademark infringement, and the mechanism proves itself just as well
 // with originals. The day there is a licence, only the table changes.
 var SHOP_START = 500;   // what a new phone begins with
-var SHOP_OWNER = "vannyz1013";
 
 var WALLS = [
   { id:"none",   tx:"wNone",   p:0,   sw:"#e9eef5" },
@@ -5908,10 +5959,13 @@ var WALLS = [
   { id:"dusk",   tx:"wDusk",   p:130, sw:"#c06c84", ink:"#fff" },
   { id:"neon",   tx:"wNeon",   p:160, sw:"#2b1152", ink:"#fff" },
   { id:"ocean",  tx:"wOcean",  p:180, sw:"#0d5c82", ink:"#fff" },
-  { id:"dora-sky",    tx:"wDoraSky",    p:80,  sw:"#9bdcf5" },
-  { id:"dora-cloud",  tx:"wDoraCloud",  p:90,  sw:"#d4f3fc" },
-  { id:"dora-pastel", tx:"wDoraPastel", p:100, sw:"#e8cbe8" },
-  { id:"dora-pirate", tx:"wDoraPirate", p:180, sw:"#0c5a89" }
+  { id:"dora-sky",    tx:"wDoraSky",    p:0, sw:"#9bdcf5" },
+  { id:"dora-cloud",  tx:"wDoraCloud",  p:0, sw:"#d4f3fc" },
+  { id:"dora-pastel", tx:"wDoraPastel", p:0, sw:"#e8cbe8" },
+  { id:"dora-pirate", tx:"wDoraPirate", p:0, sw:"#0c5a89", ink:"#fff" },
+  { id:"dora-night",  tx:"wDoraNight",  p:0, sw:"#183f5c", ink:"#fff" },
+  { id:"dora-meadow", tx:"wDoraMeadow", p:0, sw:"#9ace91" },
+  { id:"dora-candy",  tx:"wDoraCandy",  p:0, sw:"#e9c7ed" }
 ];
 
 var SKINS = [
@@ -5928,41 +5982,19 @@ function shopItem(kind, id){
   for(var i = 0; i < l.length; i++) if(l[i].id === id) return l[i];
   return null;
 }
-function shopOwner(){
-  if(typeof CLOUD === "undefined") return false;
-  var n = String(CLOUD.username || CLOUD.name || "").toLowerCase();
-  var e = String(CLOUD.email || "").toLowerCase();
-  return n === SHOP_OWNER || e.split("@")[0] === SHOP_OWNER;
-}
-function shopBal(){
-  if(shopOwner()){
-    // This is only the pretend local-store balance. The owner gets a visible
-    // starter grant and can use every design without spending it.
-    if(Number(pk("shopBal", SHOP_START)) < 9999) pkSet("shopBal", 9999);
-    return 9999;
-  }
-  return pk("shopBal", SHOP_START);
-}
+function shopBal(){ return pk("shopBal", SHOP_START); }
 
 // Anything free is owned by everybody, always. Keeping that out of the
 // saved map means a cleared phone still has a wallpaper to fall back to.
 function shopOwns(kind, id){
   var it = shopItem(kind, id);
   if(!it) return false;
-  if(shopOwner()) return true;
   if(!it.p) return true;
   return !!pk("shopOwn", {})[kind + ":" + id];
 }
 function shopBuyIt(kind, id){
   var it = shopItem(kind, id);
-  if(!it) return false;
-  if(shopOwner()){
-    var ownerOwn = pk("shopOwn", {});
-    ownerOwn[kind + ":" + id] = 1;
-    pkSet("shopOwn", ownerOwn);
-    return true;
-  }
-  if(shopOwns(kind, id)) return false;
+  if(!it || shopOwns(kind, id)) return false;
   if(shopBal() < it.p) return false;
   var own = pk("shopOwn", {});
   own[kind + ":" + id] = 1;

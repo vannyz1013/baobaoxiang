@@ -5,7 +5,7 @@
 // stay that way for days. Everything else (icons, the manifest) stays
 // cache-first, since those change only when the build does. Offline still
 // works: a failed navigation falls back to the cached page.
-const CACHE = "baobaoxiang-vd203fc1c";
+const CACHE = "baobaoxiang-v11e70625";
 const FILES = ["./", "./index.html", "./manifest.json",
                "./apple-touch-icon.png", "./icon-192.png", "./icon-512.png",
                "./doraemon-pirate.svg"];
