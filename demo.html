@@ -41,6 +41,51 @@
     To add another, copy a block and change the colours. */
    ============================================================ */
 
+/* Sky Doraemon -- a softer, airy blue */
+:root[data-theme="sky"]{
+  --bg:#eefaff; --card:#ffffff; --card2:#e8f7fe; --line:#c9e8f5;
+  --tx:#16394a; --tx2:#668da4; --tx3:#87aabc;
+  --ac:#3daedc; --ac2:#238ab8; --ok:#12a150; --warn:#a36c05; --bad:#d74755;
+  --bell:#ffe18a; --bell2:#e8b947;
+  --onac:#fff; --onac2:#fff;
+  --sky:#fff; --grad1:#73c9f4; --grad2:#3e9fc9;
+  --swoff:#d9eff9; --swknob:#b9d9e8;
+  --toastbg:#16394a; --toasttx:#fff;
+  --ring1:#e45766; --ring2:#ffc45c;
+  --demo1:#65c6ee; --demo2:#2c96c5;
+  --shadow:#4e9ab7;
+}
+
+/* Mint Doraemon -- light green-blue, calm on a phone screen */
+:root[data-theme="mint"]{
+  --bg:#effcf9; --card:#ffffff; --card2:#e9faf6; --line:#c8ebe2;
+  --tx:#163d3a; --tx2:#668f88; --tx3:#8aaea8;
+  --ac:#38b9a6; --ac2:#218d7e; --ok:#15945e; --warn:#a36c05; --bad:#d74755;
+  --bell:#ffe39a; --bell2:#e5b64d;
+  --onac:#fff; --onac2:#fff;
+  --sky:#fff; --grad1:#74d8c6; --grad2:#39a995;
+  --swoff:#d9f0ea; --swknob:#b4d5cd;
+  --toastbg:#163d3a; --toasttx:#fff;
+  --ring1:#e45766; --ring2:#ffc45c;
+  --demo1:#68cdbd; --demo2:#299784;
+  --shadow:#4c9c91;
+}
+
+/* Lavender Doraemon -- a pale violet variant with the same warm bell */
+:root[data-theme="lavender"]{
+  --bg:#f7f4ff; --card:#ffffff; --card2:#f1edff; --line:#ddd4f3;
+  --tx:#302c4b; --tx2:#7d789c; --tx3:#a19bbb;
+  --ac:#8e83d9; --ac2:#6d61b7; --ok:#15945e; --warn:#a36c05; --bad:#d74755;
+  --bell:#ffe39a; --bell2:#e5b64d;
+  --onac:#fff; --onac2:#fff;
+  --sky:#fff; --grad1:#aaa0ea; --grad2:#766bc5;
+  --swoff:#e7e2f5; --swknob:#c3bbdc;
+  --toastbg:#302c4b; --toasttx:#fff;
+  --ring1:#e45766; --ring2:#ffc45c;
+  --demo1:#a69be6; --demo2:#7569c2;
+  --shadow:#766ca8;
+}
+
 /* Dorami -- yellow body + red bow */
 :root[data-theme="dorami"]{
   --bg:#fff9e8; --card:#ffffff; --card2:#fff4d6; --line:#f1e0ac;
@@ -315,6 +360,17 @@
   padding:10px 14px;border-radius:12px;font-size:12.5px;font-weight:600;
   color:var(--tx2);background:var(--card);border:1px dashed var(--line)}
 /* Timetable-only list: no switch, so reclaim the padding on the right */
+.friendbar{display:flex;align-items:center;gap:10px;margin:0 0 13px;padding:11px 12px;
+  border:1px solid var(--line);border-radius:13px;background:var(--card2)}
+.friendbar .fcopy{flex:1;min-width:0;text-align:left}
+.friendbar b{display:block;font-size:13.5px;color:var(--tx)}
+.friendbar small{display:block;margin-top:2px;color:var(--tx2);font-size:11.5px;line-height:1.45}
+.friendbar button{flex:none;padding:9px 12px;border:0;border-radius:10px;background:var(--ac);
+  color:var(--onac);font-size:12.5px;font-weight:700;font-family:inherit;cursor:pointer}
+.friendbar button:active{transform:scale(.96)}
+.friendMode{padding-top:10px;margin-top:10px;border-top:1px solid var(--line)}
+.friendMode:first-child{padding-top:0;margin-top:0;border-top:0}
+.friendMode .shellS{margin:0 0 7px;color:var(--tx);font-weight:700}
 .item.flat{padding-right:15px}
 .item.flat .info{padding-right:0}
 
@@ -484,7 +540,7 @@ img,svg{-webkit-user-drag:none;user-drag:none}
 }
 
 /* ---------- Doraemon up top ---------- */
-.dora{line-height:0;margin-bottom:2px}
+.dora{line-height:0;margin-bottom:2px;pointer-events:none}
 .dora svg{filter:drop-shadow(0 7px 14px rgba(10,92,134,.24));
   animation:dorafloat 3.6s ease-in-out infinite}
 @keyframes dorafloat{50%{transform:translateY(-5px)}}
@@ -495,6 +551,7 @@ img,svg{-webkit-user-drag:none;user-drag:none}
 .langbtn{position:absolute;top:16px;right:0;padding:7px 13px;border-radius:99px;
   border:1px solid var(--line);background:var(--card);color:var(--tx2);
   font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;letter-spacing:.05em}
+.homebtn,.themebtn,.helpbtn,.cloudbtn,.langbtn{z-index:60}
 .langbtn:active{border-color:var(--ac);color:var(--ac2)}
 .clock .t{
   font-size:clamp(56px,19vw,86px); font-weight:200; letter-spacing:-.03em;
@@ -1728,7 +1785,7 @@ a.shellCall:active{transform:scale(.94)}
 
 </style>
 <script>window.__FORCE_DEMO__ = true;</script>
-<script>window.BUILD = "va4b8185b";</script>
+<script>window.BUILD = "va6ceb496";</script>
 <script>
 if ("serviceWorker" in navigator) addEventListener("load", function(){
   navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
@@ -2054,6 +2111,14 @@ if ("serviceWorker" in navigator) addEventListener("load", function(){
   <div class="act"><button class="btn-s" id="cloudClose"></button></div>
 </div>
 
+<div class="sheet" id="sheetFriends">
+  <div class="grip"></div>
+  <h3 id="friendsSheetTitle"></h3>
+  <div class="hint" id="friendsSheetHint"></div>
+  <div id="friendsBody"></div>
+  <div class="act"><button class="btn-s" id="friendsClose"></button></div>
+</div>
+
 <div class="sheet" id="sheetOff">
   <div class="grip"></div>
   <h3 id="offTitle"></h3>
@@ -2283,6 +2348,8 @@ zh: {
   profileRules:"3-20 \u4e2a\u5c0f\u5199\u5b57\u6bcd\u3001\u6570\u5b57\u3001\u70b9\u3001\u4e0b\u5212\u7ebf\u6216\u6a2a\u7ebf\u3002",
   profileBad:"\u8bf7\u9009\u4e00\u4e2a\u6709\u6548\u7684\u7528\u6237\u540d\u3002",
   profileSaved:"\u7528\u6237\u540d\u5df2\u4fdd\u5b58",
+  friendsOpen:"\u670b\u53cb",
+  friendsHint:"\u6dfb\u52a0\u670b\u53cb\uff0c\u6216\u67e5\u770b\u4ed6\u4eec\u5206\u4eab\u7684\u5b66\u751f\u6216\u8001\u5e08\u8bfe\u8868\u3002",
   friendsTitle:"\u670b\u53cb",
   friendsSearch:"\u670b\u53cb\u7684\u7528\u6237\u540d",
   friendsAdd:"\u53d1\u9001\u597d\u53cb\u8bf7\u6c42",
@@ -2580,6 +2647,9 @@ zh: {
   ],
   tmTitle      :"选主题",
   tmDoraemon   :"哆啦A梦",
+  tmSky        :"晴空哆啦A梦",
+  tmMint       :"薄荷哆啦A梦",
+  tmLavender   :"薰衣草哆啦A梦",
   tmDorami     :"哆啦美",
   tmSleepy     :"睡着了",
   tmHappy      :"铜锣烧",
@@ -3422,6 +3492,9 @@ en: {
   ],
   tmTitle      :"Pick a theme",
   tmDoraemon   :"Doraemon",
+  tmSky        :"Sky Doraemon",
+  tmMint       :"Mint Doraemon",
+  tmLavender   :"Lavender Doraemon",
   tmDorami     :"Dorami",
   tmSleepy     :"Fast asleep",
   tmHappy      :"Dorayaki",
@@ -3563,6 +3636,8 @@ en: {
   profileRules:"3-20 lowercase letters, numbers, dots, underscores or hyphens.",
   profileBad:"Choose a valid username (3-20 letters/numbers).",
   profileSaved:"Username saved",
+  friendsOpen:"Friends",
+  friendsHint:"Add friends, or view the Student or Teacher timetable they shared with you.",
   friendsTitle:"Friends",
   friendsSearch:"Friend's username",
   friendsAdd:"Send friend request",
@@ -5818,6 +5893,18 @@ function friendViewButton(row, mode){
     esc(t("friendsView")) + ' ' + esc(mode === "student" ? t("mStudent") : t("mTeacher")) + '</button>';
 }
 
+function friendModeHtml(row, mode){
+  var own = friendShareButton(row, mode);
+  var view = friendViewButton(row, mode);
+  var buttons = own + view;
+  return '<div class="friendMode"><p class="shellS">' +
+    (mode === "student" ? '&#127891; ' : '&#128218; ') +
+    esc(t(mode === "student" ? "mStudent" : "mTeacher")) + '</p>' +
+    (buttons ? '<div class="shellBtns">' + buttons + '</div>' :
+      '<p class="shellS" style="color:var(--tx3);font-weight:600">' +
+      esc(t("friendsPrivate")) + '</p>') + '</div>';
+}
+
 function friendTimetableHtml(){
   var v = FRIENDS.view;
   if(!v) return "";
@@ -5863,15 +5950,116 @@ function friendsHtml(){
         '<button type="button" data-act="friendRespond" data-id="' + esc(row.request_id) + '" data-yes="0">' +
         t("friendsDecline") + '</button></div>';
     }else{
-      h += '<div class="shellBtns">' + friendShareButton(row, "student") +
-        friendShareButton(row, "teacher") +
-        friendViewButton(row, "student") + friendViewButton(row, "teacher") + '</div>';
+      h += friendModeHtml(row, "student") + friendModeHtml(row, "teacher");
     }
     h += '</div>';
   });
   h += '</div>' + friendTimetableHtml();
   return h;
 }
+
+function friendsPanelHtml(){
+  return profileHtml() + friendsHtml();
+}
+
+function paintFriendsSheet(){
+  var box = $("friendsBody");
+  if(!box) return;
+  box.innerHTML = signedIn() ? friendsPanelHtml() :
+    '<div class="statBox"><p class="shellS">' + t("friendsNeedProfile") + '</p></div>';
+}
+
+function openFriends(){
+  if(!signedIn()){
+    closeSheets();
+    openMicro("me");
+    return;
+  }
+  $("friendsSheetTitle").textContent = t("friendsTitle");
+  $("friendsSheetHint").innerHTML = t("friendsHint");
+  $("friendsClose").textContent = t("roleCancel");
+  paintFriendsSheet();
+  closeSheets();
+  openSheet("sheetFriends");
+
+  var job = CLOUD.username ? Promise.resolve() : profileLoad();
+  job.then(function(){
+    if(CLOUD.username && !FRIENDS.loaded && !FRIENDS.loading) return friendsLoad();
+  }).then(function(){ paintFriendsSheet(); }, function(){ paintFriendsSheet(); });
+}
+
+function paintFriendSurfaces(){
+  paintHome();
+  if($("sheetFriends") && $("sheetFriends").classList.contains("on")) paintFriendsSheet();
+}
+
+// The timetable entry and the full Account screen use the same friend
+// controls. Keeping one handler prevents one screen from quietly lagging
+// behind the other when a request or privacy switch changes.
+function handleFriendAct(btn, act){
+  if(act === "profileEdit"){
+    PROFILE_EDIT = true; PROFILE_MSG = ""; paintFriendSurfaces(); return true;
+  }
+  if(act === "profileSave"){
+    var pn = String(($('profileUsername') || {}).value || "").trim();
+    if(!validUser(pn)){ PROFILE_MSG = t("profileBad"); paintFriendSurfaces(); return true; }
+    PROFILE_MSG = t("meWorking"); paintFriendSurfaces();
+    profileSave(pn)
+      .then(function(){ PROFILE_EDIT = false; PROFILE_MSG = ""; FRIENDS.loaded = false;
+        return friendsLoad(); })
+      .then(function(){ paintFriendSurfaces(); toast(t("profileSaved")); })
+      .catch(function(err){ PROFILE_MSG = String(err && err.message || t("profileBad")); paintFriendSurfaces(); });
+    return true;
+  }
+  if(act === "friendAdd"){
+    var fn = String(($('friendUsername') || {}).value || "").trim();
+    if(!validUser(fn)){ FRIENDS.msg = t("profileBad"); paintFriendSurfaces(); return true; }
+    FRIENDS.msg = t("meWorking"); paintFriendSurfaces();
+    friendSend(fn)
+      .then(function(){ FRIENDS.loaded = false; return friendsLoad(); })
+      .then(function(){ paintFriendSurfaces(); toast(t("friendsSent")); })
+      .catch(function(err){ FRIENDS.msg = String(err && err.message || t("friendsFailed")); paintFriendSurfaces(); });
+    return true;
+  }
+  if(act === "friendRespond"){
+    FRIENDS.msg = t("meWorking"); paintFriendSurfaces();
+    friendRespond(btn.dataset.id, btn.dataset.yes === "1")
+      .then(function(){ FRIENDS.loaded = false; return friendsLoad(); })
+      .then(function(){ paintFriendSurfaces(); })
+      .catch(function(err){ FRIENDS.msg = String(err && err.message || t("friendsFailed")); paintFriendSurfaces(); });
+    return true;
+  }
+  if(act === "friendAccess"){
+    var fOn = btn.dataset.on !== "1";
+    FRIENDS.msg = t("meWorking"); paintFriendSurfaces();
+    friendAccess(btn.dataset.id, btn.dataset.mode, fOn)
+      .then(function(){ FRIENDS.loaded = false; return friendsLoad(); })
+      .then(function(){ paintFriendSurfaces(); toast(t(fOn ? "friendsShared" : "friendsPrivate")); })
+      .catch(function(err){ FRIENDS.msg = String(err && err.message || t("friendsFailed")); paintFriendSurfaces(); });
+    return true;
+  }
+  if(act === "friendView"){
+    FRIENDS.msg = t("meWorking"); paintFriendSurfaces();
+    friendView(btn.dataset.id, btn.dataset.mode)
+      .then(function(v){
+        if(Array.isArray(v)) v = v[0];
+        if(!v) throw new Error(t("friendsNoAccess"));
+        FRIENDS.view = v; FRIENDS.msg = ""; paintFriendSurfaces();
+      })
+      .catch(function(err){ FRIENDS.msg = String(err && err.message || t("friendsNoAccess")); paintFriendSurfaces(); });
+    return true;
+  }
+  if(act === "friendViewClose"){
+    FRIENDS.view = null; paintFriendSurfaces(); return true;
+  }
+  return false;
+}
+
+document.getElementById("friendsClose").onclick = function(){ closeSheets(); };
+document.getElementById("friendsBody").onclick = function(e){
+  var btn = e.target.closest ? e.target.closest("[data-act]") : null;
+  if(btn) handleFriendAct(btn, btn.dataset.act);
+};
 
 // Google's four-colour G. Drawn here rather than fetched: the page is a
 // single file with no network of its own, and Google's brand rules ask
@@ -7499,6 +7687,9 @@ function act(url){
 // Each set = one character + one palette. The character is the point; the palette follows it.
 var THEMES = [
   { id:"doraemon", tx:"tmDoraemon", sw:["#00a0e9","#ffffff","#e60012"] },
+  { id:"sky",      tx:"tmSky",      sw:["#73c9f4","#ffffff","#ffe18a"] },
+  { id:"mint",     tx:"tmMint",     sw:["#73d7c8","#ffffff","#ffe39a"] },
+  { id:"lavender", tx:"tmLavender", sw:["#aaa0ea","#ffffff","#ffe39a"] },
   { id:"dorami",   tx:"tmDorami",   sw:["#ffd800","#ffffff","#e8452f"] },
   { id:"sleepy",   tx:"tmSleepy",   sw:["#08131c","#0086c9","#7fd8ff"] },
   { id:"happy",    tx:"tmHappy",    sw:["#c98a3a","#ffffff","#00a0e9"] },
@@ -7548,7 +7739,7 @@ function eyesOpen(pupilY){
          '<circle cx="67" cy="' + pupilY + '" r="4.4" fill="' + INK + '"/>';
 }
 
-// Five forms
+// Eight forms
 function doraSVG(kind, w, h){
   w = w || 84; h = h || 91;
   var e, m, extra = "", pre = "", body = "#00a0e9";
@@ -7572,7 +7763,30 @@ function doraSVG(kind, w, h){
       w, h);
   }
 
-  if(kind === "sleepy"){
+  if(kind === "sky"){
+    // Sky: a light-blue Doraemon with a little cloud tucked beside him.
+    body = "#73c9f4";
+    e = eyesOpen(29);
+    m = '<path d="M34 70q26 24 52 0" stroke="' + INK + '" stroke-width="2.4" ' +
+        'fill="none" stroke-linecap="round"/>';
+    extra = '<g fill="#fff" opacity=".94"><path d="M92 88q0-8 8-8 3-7 10-2 8-1 8 7 0 6-8 6H99q-7 0-7-3z"/></g>';
+  } else if(kind === "mint"){
+    // Mint: a fresh mint body with a tiny leaf badge.
+    body = "#73d7c8";
+    e = eyesOpen(32);
+    m = '<path d="M34 70q26 24 52 0" stroke="' + INK + '" stroke-width="2.4" ' +
+        'fill="none" stroke-linecap="round"/>';
+    extra = '<g transform="translate(91 86) rotate(-18)"><path d="M0 13Q-3-5 14-10 18 6 0 13Z" fill="#2ca88f"/>' +
+            '<path d="M1 11Q7 2 13-6" stroke="#eafff9" stroke-width="1.5" fill="none"/></g>';
+  } else if(kind === "lavender"){
+    // Lavender: a gentle violet body with two soft sparkle stars.
+    body = "#aaa0ea";
+    e = eyesOpen(30);
+    m = '<path d="M36 71q24 19 48 0" stroke="' + INK + '" stroke-width="2.4" ' +
+        'fill="none" stroke-linecap="round"/>';
+    extra = '<g fill="#fff2a8"><path d="M18 23l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/>' +
+            '<path d="M103 48l2 4.5 4.5 2-4.5 2-2 4.5-2-4.5-4.5-2 4.5-2z"/></g>';
+  } else if(kind === "sleepy"){
     // Asleep: eyes shut, mouth open snoring, nightcap on, Zs floating
     e = '<ellipse cx="47" cy="27" rx="12.5" ry="15.5" fill="#fff" stroke="' + INK + '" stroke-width="2.4"/>' +
         '<ellipse cx="73" cy="27" rx="12.5" ry="15.5" fill="#fff" stroke="' + INK + '" stroke-width="2.4"/>' +
@@ -8113,6 +8327,19 @@ function paintWeekBadge(){
   b.classList.toggle("out", out);
 }
 
+function friendBarHtml(){
+  if(!modeCfg(S.mode).wk) return "";
+  return '<div class="friendbar"><div class="fcopy">' +
+    '<b>&#128101; ' + esc(t("friendsTitle")) + '</b>' +
+    '<small>' + esc(t("friendsHint")) + '</small></div>' +
+    '<button type="button" id="friendsOpenBtn">' + esc(t("friendsOpen")) + '</button></div>';
+}
+
+function bindFriendBar(){
+  var b = $("friendsOpenBtn");
+  if(b) b.onclick = openFriends;
+}
+
 function paintBody(){
   var cfg = modeCfg(S.mode);
   var el  = $("body");
@@ -8126,9 +8353,10 @@ function paintBody(){
   // timetable looks completely ordinary, and people assume the alarms are still on.
   var quietBar = S.quiet ? '<div class="qbar">&#128277; ' +
                            esc(t("quietBarTx")) + '</div>' : "";
+  var friendsBar = friendBarHtml();
 
   if(!LIST.length){
-    el.innerHTML = quietBar +
+    el.innerHTML = quietBar + friendsBar +
       '<div class="card"><div class="empty"><div class="em">' +
       (cfg.wk ? "&#128197;" : "&#9200;") + '</div>' +
       '<p>' + (cfg.wk ? t("emptyClass") : t("emptyAlarm")) + '</p>' +
@@ -8140,7 +8368,8 @@ function paintBody(){
       (cfg.wk ? '<button class="btn-s" id="emptyGen" style="margin-top:10px;padding:13px 24px;border:0;' +
       'border-radius:12px;font-size:14px;font-weight:700;font-family:inherit;' +
       'cursor:pointer">' + t("genTt") + '</button>' : "") +
-      '</div></div>';
+    '</div></div>';
+    bindFriendBar();
     $("emptyAction").onclick = cfg.wk ? openImport : function(){ openEdit(null); };
     if($("emptyGen")) $("emptyGen").onclick = applyGenTt;
     return;
@@ -8154,7 +8383,7 @@ function paintBody(){
     if(m < best){ best = m; nextId = a.id; }
   });
 
-  var html = quietBar;
+  var html = quietBar + friendsBar;
 
   // -------- Calendar: all three modes have one --------
   //   student / teacher + a semester set -> the week view also gets a scrollable W1 W2 W3 strip
@@ -8191,6 +8420,7 @@ function paintBody(){
   }
 
   el.innerHTML = html;
+  bindFriendBar();
 }
 
 function byTime(a,b){ return (a.hour*60+a.minute) - (b.hour*60+b.minute); }
@@ -9800,6 +10030,8 @@ function paintCloud(){
       '</div>' + msgHTML() +
       '<div class="pushbox" id="pushBox"></div>' +
       '<div class="hint">' + t("cOnHelp") + '</div>' +
+      '<div class="act"><button class="btn-p" id="cloudFriends">&#128101; ' +
+        t("friendsOpen") + '</button></div>' +
       '<div class="act">' +
         '<button class="btn-s" id="cfgReset">' + t("cChangeCfg") + '</button>' +
         '<button class="btn-p" id="cLogout">' + t("cLogout") + '</button>' +
@@ -9810,6 +10042,7 @@ function paintCloud(){
     // while we were away, and refreshes the time zone and language on it.
     pushSync().then(paintPush);
 
+    $("cloudFriends").onclick = openFriends;
     $("cLogout").onclick  = function(){ cloudLogout(); };
     $("cfgReset").onclick = function(){
       CLOUD.url = ""; CLOUD.key = ""; cloudSaveCfg(); cloudSay("");
@@ -11794,6 +12027,11 @@ function applyStatic(){
   if($("sheetCloud").classList.contains("on")) paintCloud();
   paintCloudBtn();
 
+  $("friendsSheetTitle").textContent = t("friendsTitle");
+  $("friendsSheetHint").innerHTML = t("friendsHint");
+  $("friendsClose").textContent = t("roleCancel");
+  if($("sheetFriends").classList.contains("on")) paintFriendsSheet();
+
   $("helpTitle").textContent  = t("helpTitle");
   $("helpClose").textContent  = t("roleCancel");
   if($("sheetHelp").classList.contains("on")) paintHelp();
@@ -12123,6 +12361,7 @@ $("stubStage").onclick = function(e){
   var btn = e.target.closest("[data-act]");
   if(!btn) return;
   var act = btn.dataset.act;
+  if(handleFriendAct(btn, act)) return;
   if(act === "tog"){
     var g = btn.parentNode.querySelectorAll("[data-act='tog']");
     for(var i=0;i<g.length;i++) g[i].classList.remove("on");
