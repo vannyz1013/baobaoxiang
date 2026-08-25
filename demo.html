@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" class="at-home">
 <head>
 <meta charset="utf-8">
 <!-- viewport-fit=cover first, and nothing after it that iOS does not know:
@@ -924,7 +924,16 @@ body.at-home #pocketHome{display:flex}
    reason -- whichever of the three layers a browser leaves showing, it is
    the same paint. */
 html,body{
-  background:
+  /* background-COLOR, not the `background` shorthand. The shorthand with
+     only gradients in it resets background-color to transparent, and the
+     colour is the half that matters here: the root's background is
+     propagated to the canvas and painted over the WHOLE canvas, but its
+     background-IMAGE is sized and positioned to the root's own box and
+     stops there. Any canvas the root's box does not reach therefore shows
+     the colour alone -- transparent, i.e. white. That was the strip.
+     Section 87. */
+  background-color:var(--bg);
+  background-image:
     radial-gradient(120% 70% at 50% -10%, color-mix(in srgb, var(--ac) 28%, #fff), transparent 62%),
     linear-gradient(180deg, color-mix(in srgb, var(--ac) 14%, var(--bg)) 0%, var(--bg) 48%);
 }
@@ -937,34 +946,42 @@ html,body{
    readable without touching any other screen. */
 html[data-wall="dawn"],
 body[data-wall="dawn"],
-#pocketHome[data-wall="dawn"]{background:
+#pocketHome[data-wall="dawn"]{--wallEnd:#6d5090;background-color:#6d5090;background-image:
   linear-gradient(180deg,#ffd9a8 0%,#fca97f 34%,#c9738c 68%,#6d5090 100%)}
 html[data-wall="neon"],
 body[data-wall="neon"],
-#pocketHome[data-wall="neon"]{background:
+#pocketHome[data-wall="neon"]{--wallEnd:#080b24;background-color:#080b24;background-image:
   radial-gradient(85% 55% at 18% 0%,rgba(124,58,237,.65),transparent 62%),
   radial-gradient(70% 45% at 92% 22%,rgba(14,165,233,.45),transparent 60%),
   linear-gradient(180deg,#180f33 0%,#2b1152 52%,#080b24 100%)}
 html[data-wall="sakura"],
 body[data-wall="sakura"],
-#pocketHome[data-wall="sakura"]{background:
+#pocketHome[data-wall="sakura"]{--wallEnd:#f7a9c6;background-color:#f7a9c6;background-image:
   radial-gradient(90% 55% at 50% -8%,#fff2f7,transparent 62%),
   linear-gradient(180deg,#ffe6f0 0%,#ffc9de 46%,#f7a9c6 100%)}
 html[data-wall="ocean"],
 body[data-wall="ocean"],
-#pocketHome[data-wall="ocean"]{background:
+#pocketHome[data-wall="ocean"]{--wallEnd:#04202f;background-color:#04202f;background-image:
   radial-gradient(80% 50% at 50% 0%,rgba(56,189,248,.4),transparent 60%),
   linear-gradient(180deg,#0a3b5e 0%,#0d5c82 44%,#04202f 100%)}
 html[data-wall="grid"],
 body[data-wall="grid"],
-#pocketHome[data-wall="grid"]{background:
+#pocketHome[data-wall="grid"]{--wallEnd:#e8edf5;background-color:#e8edf5;background-image:
   repeating-linear-gradient(0deg,rgba(120,140,170,.16) 0 1px,transparent 1px 22px),
   repeating-linear-gradient(90deg,rgba(120,140,170,.16) 0 1px,transparent 1px 22px),
   linear-gradient(180deg,#f7f9fc 0%,#e8edf5 100%)}
 html[data-wall="dusk"],
 body[data-wall="dusk"],
-#pocketHome[data-wall="dusk"]{background:
+#pocketHome[data-wall="dusk"]{--wallEnd:#355c7d;background-color:#355c7d;background-image:
   linear-gradient(180deg,#f8b195 0%,#c06c84 40%,#6c5b7b 72%,#355c7d 100%)}
+
+/* Only the home screen ends in the wallpaper. Every other screen ends in
+   --bg, so the canvas beneath it has to as well -- otherwise the strip
+   would merely change from white to purple. This sits after the wallpaper
+   rules deliberately: same specificity, and the later rule wins. <html>
+   carries at-home alongside <body> because no selector reaches a parent. */
+html:not(.at-home),
+body:not(.at-home){background-color:var(--bg)}
 
 /* ---- Icon skins ----
    The glyph never changes; the plate under it does. */
@@ -1164,6 +1181,17 @@ body.editing .homePager{touch-action:none}
    Scroll snapping does the whole gesture -- momentum, the rubber band at
    the ends, trackpad and touch alike -- so there is no drag handler here
    to fight the one that owns the back swipe. */
+/* Held blank, not hidden: the pager still lays out, so its height can be
+   measured while nothing is drawn in it. See settleHome(). The fade is
+   what makes the wait read as the springboard arriving rather than as the
+   app being slow -- and on any browser whose geometry is right on the
+   first frame it is over in about three of them. */
+#pocketHome.booting .homePager,
+#pocketHome.booting .homeDots{opacity:0}
+.homePager,.homeDots{transition:opacity var(--mo-2) var(--ease)}
+@media (prefers-reduced-motion:reduce){
+  .homePager,.homeDots{transition:none}
+}
 .homePager{
   flex:1 1 auto;min-height:0;
   display:flex;align-items:stretch;overflow-x:auto;overflow-y:hidden;
@@ -1308,7 +1336,8 @@ body.editing .homePager{touch-action:none}
           calc(var(--sp-10) + env(safe-area-inset-bottom));
   text-align:left;will-change:transform;
   transition:transform var(--mo-2) var(--ease);
-  background:
+  background-color:var(--bg);
+  background-image:
     radial-gradient(120% 62% at 50% -10%, color-mix(in srgb, var(--ac) 20%, #fff), transparent 60%),
     linear-gradient(180deg, color-mix(in srgb, var(--ac) 9%, var(--bg)) 0%, var(--bg) 44%);
   box-shadow:-20px 0 44px -22px rgba(0,0,0,.42);
@@ -1699,7 +1728,7 @@ a.shellCall:active{transform:scale(.94)}
 
 </style>
 <script>window.__FORCE_DEMO__ = true;</script>
-<script>window.BUILD = "vdbf5e65e";</script>
+<script>window.BUILD = "v5d8c2c5c";</script>
 <script>
 if ("serviceWorker" in navigator) addEventListener("load", function(){
   navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
@@ -1719,7 +1748,7 @@ if ("serviceWorker" in navigator) addEventListener("load", function(){
 </head>
 <body class="at-home">
 
-<div id="pocketHome">
+<div id="pocketHome" class="booting">
   <div class="homeTop">
     <button type="button" class="homeMe" id="homeMe" aria-label="Account">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
@@ -1770,7 +1799,7 @@ if ("serviceWorker" in navigator) addEventListener("load", function(){
   <span class="dbR">
     <svg viewBox="0 0 18 12" width="17" height="11" fill="currentColor" aria-hidden="true">
       <rect x="0"  y="8"   width="3" height="4"   rx="1"/>
-      <rect x="4.5"y="5.5" width="3" height="6.5" rx="1"/>
+      <rect x="4.5" y="5.5" width="3" height="6.5" rx="1"/>
       <rect x="9"  y="3"   width="3" height="9"   rx="1"/>
       <rect x="13.5" y="0.5" width="3" height="11.5" rx="1" opacity=".35"/>
     </svg>
@@ -3931,9 +3960,17 @@ if(lang !== "zh" && lang !== "en")
   lang = /^zh/i.test(navigator.language || "") ? "zh" : "en";
 
 // t("key") returns a string; t("key", a, b) returns the kind that takes variables
-function t(k, a, b){
+// Three placeholders, not two. tImported(n, up, sk) and hintLeads(evt,
+// list, n) both take three, and three call sites have always passed
+// three -- but t() forwarded only the first two, so the skipped-rows
+// count in the import toast and the "(3 reminders)" suffix on the alarm
+// hint were `undefined` in both languages, in every build, since they
+// were written. Found by pointing TypeScript at this file for the first
+// time on the vite branch: "Expected 0-3 arguments, but got 4", three
+// times. Three is the most any dictionary entry declares.
+function t(k, a, b, c){
   var v = L[lang][k];
-  return typeof v === "function" ? v(a, b) : v;
+  return typeof v === "function" ? v(a, b, c) : v;
 }
 function WD(i){  return L[lang].wdLong[i];  }
 function WDS(i){ return L[lang].wdShort[i]; }
@@ -5088,6 +5125,22 @@ function tap(ms){
   try{ if(navigator.vibrate) navigator.vibrate(ms || 8); }catch(e){}
 }
 
+// The canvas is what an installed iOS app paints below the page when the
+// root's box comes up shorter than the web view, and it takes the ROOT's
+// background-color -- only the colour, never the gradient. Which colour is
+// right depends on what is on screen: the home screen ends in the
+// wallpaper, every pane that slides over it ends in --bg. No selector can
+// reach a parent, so the answer is written onto <html> from here.
+// Section 87.
+function paintCanvas(){
+  var d = document.documentElement;
+  if(!d || !d.classList) return;
+  var st = $("homeStub");
+  var atHome = document.body.classList.contains("at-home") &&
+               !(st && st.classList.contains("on"));
+  d.classList.toggle("at-home", atHome);
+}
+
 function openMicro(id){
   if(NAV.busy) return;
   if(qOpen) qShut();
@@ -5099,6 +5152,7 @@ function openMicro(id){
   st.classList.add("on");
   st.scrollTop = 0;
   $("pocketHome").classList.add("in-app");
+  paintCanvas();
   paintHome();
   st.classList.add("pushing");
   NAV.busy = true;
@@ -5128,12 +5182,13 @@ function closeMicro(instant){
   $("pocketHome").classList.remove("in-app");
   st.classList.remove("pushing", "popping", "dragging");
   st.style.transform = "";
-  if(instant){ st.classList.remove("on"); paintHome(); return; }
+  if(instant){ st.classList.remove("on"); paintCanvas(); paintHome(); return; }
   NAV.busy = true;
   st.classList.add("popping");
   setTimeout(function(){
     st.classList.remove("popping", "on");
     NAV.busy = false;
+    paintCanvas();
     paintHome();
   }, 215);
   tap(6);
@@ -5961,6 +6016,7 @@ function goHome(){
   S.micro = "home";
   document.body.classList.add("at-home");
   $("homeStub").classList.remove("on", "pushing", "popping", "dragging");
+  paintCanvas();
   $("homeStub").style.transform = "";
   $("pocketHome").classList.remove("in-app");
   closeSheets(true);
@@ -5970,6 +6026,7 @@ function goHome(){
 function openTt(){
   S.micro = "tt";
   document.body.classList.remove("at-home");
+  paintCanvas();
   var w = document.querySelector(".wrap");
   if(w) w.scrollTop = 0;
   if(!S.roleSet && !S.roleLocal) openRole();
@@ -5993,6 +6050,9 @@ var PAGE_COLS = 4;
 var PAGE_TILE = 83;
 var PAGE_GAP  = 20;
 var PAGE_SIZE = PAGE_COLS * 4;
+// Nothing is drawn into the pager until its height has stopped moving.
+// settleHome(), at the bottom of this file, is what clears it.
+var homeHeld = true;
 
 function fitPage(){
   var pager = $("homePager");
@@ -6090,6 +6150,10 @@ function tileEl(m){
 function paintPages(force){
   var pager = $("homePager"), dots = $("homeDots"), p, b;
   if(!pager) return;
+  // A page count measured before the geometry settles is a guess, and the
+  // whole point of the hold is not to show a guess. releaseHome() clears
+  // the flag before it calls this, so the first real build happens there.
+  if(homeHeld) return;
   PAGE_SIZE = fitPage();
   if(!force && pagesKey() === pagesSig && pager.children.length === pageCount()) return;
   var list = pageApps();
@@ -8538,8 +8602,8 @@ var PW_LOGIN = false;
 // means the account screen says "not configured" and the rest of Pocket
 // carries on exactly as before -- signing in is optional by design, so a
 // missing project must never be able to break a demo.
-var DEFAULT_CLOUD_URL = "";
-var DEFAULT_CLOUD_KEY = "";
+var DEFAULT_CLOUD_URL = "https://lelymzpuawkopsmawndl.supabase.co";
+var DEFAULT_CLOUD_KEY = "sb_publishable_vB6Cnm0ooPSm_vUmPDtIyA_R_13aE_F";
 
 // A Supabase account has to be an email address. But the user does not want to type an email,
 // so internally the username gets a fixed domain appended -- the screen only ever shows the username.
@@ -11671,6 +11735,82 @@ $("homePager").onscroll = markPage;
 // drag-resize fires this continuously, and rebuilding the grid on every
 // frame of it is what makes a home screen flicker. Never mid-drag -- the
 // tile being carried is a child of the grid we would be throwing away.
+// ============================================================
+//  Do not show a page count you are about to take back
+//
+//  At the first paint the pager's height is wrong in one direction, and
+//  always the same one -- too tall. An installed iOS app can still report
+//  env(safe-area-inset-*) as 0 for a beat after launch, and --app-h is
+//  whatever the visible viewport claimed before the launch animation
+//  finished. Both make the pager taller than it ends up. So fitPage()
+//  answered seven rows, all twenty-six icons went onto one page, and a
+//  few hundred milliseconds later the honest answer -- six rows -- moved
+//  two of them to page two while the user was looking at them.
+//
+//  Chrome never showed it: it resolves its insets before the first frame,
+//  so the first measurement is also the last one. Reproduced by making
+//  the insets and the viewport height arrive late, which is what an
+//  installed iOS app does.
+//
+//  The fix is not a better guess, it is not guessing. Nothing is drawn
+//  into the pager until the geometry has held the same numbers for
+//  HOLD_STILL, and the class on #pocketHome keeps it blank until then.
+//  HOLD_MAX is the promise that the springboard appears even if something
+//  never stops moving; after the release, pagerRefit() below is still
+//  there for a genuine rotation or split screen.
+// ============================================================
+//  Three numbers, and the middle one is the one that matters. Stability
+//  alone is not enough: the first measurement is stable for as long as it
+//  takes the insets to arrive, so a stability window shorter than that
+//  releases on the wrong answer and the icons still jump. Measured on the
+//  repro: the insets landed at 256ms and the viewport settled at 429ms,
+//  and a 180ms window with no floor released at 200ms -- before either.
+//  HOLD_MIN is the floor that covers the settle; HOLD_STILL then makes
+//  sure we are not releasing in the middle of one.
+var HOLD_MIN   = 380;   // ms before we will release at all
+var HOLD_STILL = 180;   // ms of identical geometry on top of that
+var HOLD_MAX   = 1000;  // ms after which we draw whatever we have
+
+function homeGeom(){
+  var p = $("homePager");
+  if(!p) return "";
+  return p.clientHeight + "x" + p.clientWidth + "/" +
+         String(getComputedStyle(p).getPropertyValue("--home-cols")).trim();
+}
+
+function releaseHome(){
+  if(!homeHeld) return;
+  homeHeld = false;
+  // Twice on purpose. The first build has no tile in the DOM for fitPage()
+  // to measure, so it works off the seed; the second measures the tile the
+  // first one just made, which is what accounts for a wrapped label or a
+  // larger text size. Both happen behind the fade, so neither is seen.
+  paintPages(true);
+  paintPages(true);
+  markPage();
+  var home = $("pocketHome");
+  if(home) home.classList.remove("booting");
+}
+
+(function settleHome(){
+  var seen = homeGeom(), moved = 0, t0 = 0;
+  function step(now){
+    if(!homeHeld) return;
+    if(!t0){ t0 = now; moved = now; }
+    var g = homeGeom();
+    if(g !== seen){ seen = g; moved = now; }
+    var old = now - t0;
+    if((old >= HOLD_MIN && now - moved >= HOLD_STILL) || old >= HOLD_MAX){
+      releaseHome();
+      return;
+    }
+    requestAnimationFrame(step);
+  }
+  // A browser with no requestAnimationFrame gets the app immediately
+  // rather than a springboard that never arrives.
+  try{ requestAnimationFrame(step); }catch(e){ releaseHome(); }
+})();
+
 var pagerFit = null;
 function pagerRefit(){
   if(pagerFit) clearTimeout(pagerFit);
