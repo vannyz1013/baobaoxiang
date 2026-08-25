@@ -1003,7 +1003,7 @@ html,body{
 
 /* ---- Wallpapers ----
    A wallpaper is a background layer over the theme, not a sixth theme:
-   the five themes still own every colour in the app, and this owns one
+   the themes still own every colour in the app, and this owns one
    rectangle behind the icons. Bought in the Store, chosen on Account.
    The dark ones set --tx on the home element alone, so the labels stay
    readable without touching any other screen. */
@@ -1038,6 +1038,32 @@ body[data-wall="dusk"],
 #pocketHome[data-wall="dusk"]{--wallEnd:#355c7d;background-color:#355c7d;background-image:
   linear-gradient(180deg,#f8b195 0%,#c06c84 40%,#6c5b7b 72%,#355c7d 100%)}
 
+html[data-wall="dora-sky"],
+body[data-wall="dora-sky"],
+#pocketHome[data-wall="dora-sky"]{--wallEnd:#8ed0f0;background-color:#8ed0f0;background-image:
+  radial-gradient(24% 13% at 18% 18%,rgba(255,255,255,.94) 0 46%,transparent 48%),
+  radial-gradient(30% 16% at 79% 31%,rgba(255,255,255,.86) 0 44%,transparent 46%),
+  linear-gradient(180deg,#e7faff 0%,#bceafa 48%,#8ed0f0 100%)}
+html[data-wall="dora-cloud"],
+body[data-wall="dora-cloud"],
+#pocketHome[data-wall="dora-cloud"]{--wallEnd:#b7e5f6;background-color:#b7e5f6;background-image:
+  radial-gradient(18px 12px at 14% 24%,rgba(255,255,255,.9) 0 55%,transparent 57%),
+  radial-gradient(28px 16px at 21% 24%,rgba(255,255,255,.9) 0 55%,transparent 57%),
+  radial-gradient(23px 14px at 76% 15%,rgba(255,255,255,.82) 0 55%,transparent 57%),
+  radial-gradient(34px 18px at 84% 15%,rgba(255,255,255,.82) 0 55%,transparent 57%),
+  linear-gradient(180deg,#f0fcff 0%,#d4f3fc 42%,#b7e5f6 100%)}
+html[data-wall="dora-pastel"],
+body[data-wall="dora-pastel"],
+#pocketHome[data-wall="dora-pastel"]{--wallEnd:#dcb9dc;background-color:#dcb9dc;background-image:
+  radial-gradient(55% 28% at 15% 8%,rgba(255,255,255,.85),transparent 70%),
+  radial-gradient(45% 24% at 90% 35%,rgba(255,255,255,.58),transparent 70%),
+  linear-gradient(145deg,#dff7ff 0%,#c8e9fa 38%,#f4d9eb 76%,#dcb9dc 100%)}
+html[data-wall="dora-pirate"],
+body[data-wall="dora-pirate"],
+#pocketHome[data-wall="dora-pirate"]{--wallEnd:#0c5a89;background-color:#0c5a89;background-image:
+  linear-gradient(180deg,rgba(2,30,58,.03) 0%,rgba(2,30,58,.24) 100%),
+  url("doraemon-pirate.jpeg");background-size:cover;background-position:center;background-repeat:no-repeat}
+
 /* Only the home screen ends in the wallpaper. Every other screen ends in
    --bg, so the canvas beneath it has to as well -- otherwise the strip
    would merely change from white to purple. This sits after the wallpaper
@@ -1069,6 +1095,10 @@ body:not(.at-home){background-color:var(--bg)}
 .shopCard{background:var(--card);border:1px solid var(--edge);border-radius:var(--r-lg);
   overflow:hidden;box-shadow:var(--e1);display:flex;flex-direction:column}
 .shopSwatch{height:78px;display:grid;place-items:center}
+.shopSwatch[data-wall-preview="dora-sky"]{background:linear-gradient(180deg,#e7faff,#8ed0f0) !important}
+.shopSwatch[data-wall-preview="dora-cloud"]{background:radial-gradient(18px 12px at 25% 35%,#fff 0 55%,transparent 57%),linear-gradient(180deg,#f0fcff,#b7e5f6) !important}
+.shopSwatch[data-wall-preview="dora-pastel"]{background:linear-gradient(145deg,#dff7ff,#f4d9eb,#dcb9dc) !important}
+.shopSwatch[data-wall-preview="dora-pirate"]{background-image:url("doraemon-pirate.jpeg") !important;background-size:cover !important;background-position:center !important}
 .shopSwatch i{width:26px;height:26px;border-radius:8px;display:block;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 4px 10px -6px rgba(10,30,60,.8)}
 .shopMeta{padding:var(--sp-3);display:flex;flex-direction:column;gap:6px;flex:1}
@@ -1569,6 +1599,12 @@ a.shellCall:active{transform:scale(.94)}
 .money{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:650}
 .money.out{color:var(--bad)}
 .money.in{color:var(--ok)}
+.cashAdvice{margin:var(--sp-3) 0 0;padding:12px 14px;border:1px dashed var(--line);
+  border-radius:var(--r-md);background:var(--card2);color:var(--tx2);font-size:var(--fs-sm);
+  line-height:1.5}
+.cashAdvice b{display:block;color:var(--tx);font-size:var(--fs-sm);margin-bottom:3px}
+.cashAdvice p{margin:0}
+.cashDetails{display:grid;gap:var(--sp-2)}
 
 /* ---------- Feed: events, wall, food, ride ---------- */
 .feedCard{padding:var(--sp-4)}
@@ -1791,7 +1827,7 @@ a.shellCall:active{transform:scale(.94)}
 
 </style>
 <script>window.__FORCE_DEMO__ = true;</script>
-<script>window.BUILD = "v85ca8a8a";</script>
+<script>window.BUILD = "v84fbbefb";</script>
 <script>
 if ("serviceWorker" in navigator) addEventListener("load", function(){
   navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
@@ -2376,6 +2412,12 @@ zh: {
   friendsSent:"\u597d\u53cb\u8bf7\u6c42\u5df2\u53d1\u9001",
   friendsFailed:"\u65e0\u6cd5\u66f4\u65b0\u597d\u53cb\u8d44\u6599",
   friendsNoAccess:"\u8fd9\u4efd\u8bfe\u8868\u662f\u79c1\u4eba\u7684\uff0c\u6216\u5206\u4eab\u5df2\u88ab\u53d6\u6d88\u3002",
+  friendsCopy:"\u590d\u5236\u5230\u6211\u7684\u8bfe\u8868",
+  friendsCopyAsk:"\u628a\u8fd9\u4f4d\u597d\u53cb\u7684\u8bfe\u8868\u5408\u5e76\u5230\u4f60\u7684\u8bfe\u8868\u5417\uff1f\u73b0\u6709\u8bfe\u4e0d\u4f1a\u88ab\u5220\u9664\u3002",
+  friendsCopyHint:"\u4f1a\u5408\u5e76\u8bfe\u7a0b\uff0c\u5e76\u590d\u5236\u5b66\u671f\u9031\u6b21\u3002\u539f\u8bfe\u8868\u4e0d\u4f1a\u88ab\u5220\u9664\u3002",
+  friendsCopied:function(n){ return "\u5df2\u590d\u5236 " + n + " \u5802\u8bfe\uff0c\u5b66\u671f\u9031\u6b21\u4e5f\u5df2\u540c\u6b65\u3002"; },
+  friendsRefresh:"\u5237\u65b0",
+  friendsUpdated:"\u5df2\u66f4\u65b0\u8fd9\u4efd\u5206\u4eab\u8bfe\u8868",
   wdLong : ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
   wdShort: ["日","一","二","三","四","五","六"],
   offline: "连不到时钟...",
@@ -2761,6 +2803,10 @@ zh: {
   wOcean     :"深海",
   wGrid      :"格子纸",
   wDusk      :"黄昏",
+  wDoraSky   :"\u54c6\u5566A\u68a6\u00b7\u6674\u7a7a",
+  wDoraCloud :"\u54c6\u5566A\u68a6\u00b7\u4e91\u6735",
+  wDoraPastel:"\u54c6\u5566A\u68a6\u00b7\u7c89\u5f69",
+  wDoraPirate:"\u54c6\u5566A\u68a6\u00b7\u6d77\u76d7",
   kFlat      :"原色",
   kGlass     :"磨砂玻璃",
   kInk       :"线条",
@@ -2888,10 +2934,18 @@ zh: {
   cashN      :"笔数",
   cashWhatPh :"花在什么",
   cashHowPh  :"金额",
-  cashAdd    :"记一笔",
+  cashAdd    :"记金额",
+  cashDetails:"补充买了什么（可选）",
+  cashDetailsHide:"先不补充",
+  cashUntitled:"一笔付款",
+  cashRecorded:"已记下这笔付款",
   cashYest   :"昨天",
   cashDaysAgo: function(n){ return n + " 天前"; },
-  cashNeed   :"先填名目和金额",
+  cashNeed   :"先填金额",
+  cashAdviceTitle:"小提醒",
+  cashAdviceGood:function(v){ return "这 7 天记录了 " + v + "。继续记账，月底会更容易看懂。"; },
+  cashAdviceToday:function(v){ return "今天已经记录 " + v + "。如果不是必要开销，可以先停一下再决定。"; },
+  cashAdviceWatch:function(v){ return "这 7 天已经记录 " + v + "。可以打开明细，看看哪一类花得最多。"; },
   evHint     :"示例活动 · 报名只存在这台手机",
   evAll      :"全部",
   evMine     :"我要去",
@@ -3606,6 +3660,10 @@ en: {
   wOcean     :"Deep Ocean",
   wGrid      :"Grid Paper",
   wDusk      :"Dusk",
+  wDoraSky   :"Doraemon Sky",
+  wDoraCloud :"Doraemon Clouds",
+  wDoraPastel:"Doraemon Pastel",
+  wDoraPirate:"Doraemon Pirate",
   kFlat      :"Flat",
   kGlass     :"Glass",
   kInk       :"Outline",
@@ -3664,6 +3722,12 @@ en: {
   friendsSent:"Friend request sent",
   friendsFailed:"Could not update Friends",
   friendsNoAccess:"This timetable is private or the share was removed.",
+  friendsCopy:"Copy to my timetable",
+  friendsCopyAsk:"Merge this friend's timetable into yours? Existing classes will not be deleted.",
+  friendsCopyHint:"This merges the classes and copies the semester weeks. Your existing timetable is kept.",
+  friendsCopied:function(n){ return n + " classes copied, including semester weeks."; },
+  friendsRefresh:"Refresh",
+  friendsUpdated:"Shared timetable refreshed",
   meGFail    :"Google sign-in did not finish. Try again.",
   meBadId    :"Use your student ID (6–10 digits) or a UTAR email address.",
   meShortPw  :"Password must be at least 8 characters.",
@@ -3765,10 +3829,18 @@ en: {
   cashN      :"Entries",
   cashWhatPh :"What was it for",
   cashHowPh  :"Amount",
-  cashAdd    :"Add",
+  cashAdd    :"Record amount",
+  cashDetails:"Add what you bought (optional)",
+  cashDetailsHide:"Hide details",
+  cashUntitled:"Payment",
+  cashRecorded:"Payment recorded",
   cashYest   :"Yesterday",
   cashDaysAgo: function(n){ return n + " days ago"; },
-  cashNeed   :"Need a description and an amount",
+  cashNeed   :"Enter an amount first",
+  cashAdviceTitle:"Pocket note",
+  cashAdviceGood:function(v){ return "You recorded " + v + " in the last 7 days. Keep recording it and the month will be easier to understand."; },
+  cashAdviceToday:function(v){ return "You recorded " + v + " today. If it is not necessary, pause and decide before spending more."; },
+  cashAdviceWatch:function(v){ return "You recorded " + v + " in the last 7 days. Add details to see which kind of spending is largest."; },
   evHint     :"Sample campus events · going is saved on this phone",
   evAll      :"All",
   evMine     :"Going",
@@ -4749,6 +4821,12 @@ function cashSum(list, days){
   return v;
 }
 function rm(n){ return "RM " + Math.abs(n).toFixed(2); }
+function cashAdvice(list){
+  var today = cashSum(list, 1), week = cashSum(list, 7);
+  if(week >= 100) return t("cashAdviceWatch", rm(week));
+  if(today >= 30) return t("cashAdviceToday", rm(today));
+  return t("cashAdviceGood", rm(week));
+}
 function cashHtml(){
   var list = cashList(), bal = 0, i, x, html;
   for(i = 0; i < list.length; i++) bal += list[i].a;
@@ -4761,17 +4839,20 @@ function cashHtml(){
       '<div class="statBox"><p class="n">'+cashSum(list, 7).toFixed(2)+'</p><p class="k">RM · '+t("cashWeek")+"</p></div>"+
       '<div class="statBox"><p class="n">'+list.length+'</p><p class="k">'+t("cashN")+"</p></div>"+
     "</div>";
+  html += '<div class="cashAdvice"><b>'+esc(t("cashAdviceTitle"))+'</b><p>'+esc(cashAdvice(list))+'</p></div>';
   for(i = 0; i < list.length && i < 12; i++){
     x = list[i];
     html += shellRow(dayAgo(x.d || 0), esc(x.t), "",
       '<span class="money '+(x.a < 0 ? "out" : "in")+'">'+(x.a < 0 ? "-" : "+")+rm(x.a)+"</span>");
   }
   html += '<div class="dueForm">'+
-      '<input id="cashT" maxlength="40" placeholder="'+esc(t("cashWhatPh"))+'">'+
       '<div class="gpaFormRow">'+
         '<input id="cashA" type="number" min="0" step="0.10" placeholder="'+esc(t("cashHowPh"))+'">'+
         '<div class="shellBtns"><button type="button" class="on" data-act="cashAdd">'+t("cashAdd")+"</button></div>"+
-      "</div></div>" + demoNote();
+      "</div>"+
+      '<button type="button" class="shellFab ghost" data-act="cashDetails">'+t("cashDetails")+"</button>"+
+      '<div id="cashDetails" class="cashDetails" hidden><input id="cashT" maxlength="40" placeholder="'+esc(t("cashWhatPh"))+'"></div>'+
+      "</div>" + demoNote();
   return html;
 }
 function dayAgo(d){
@@ -5699,7 +5780,11 @@ var WALLS = [
   { id:"grid",   tx:"wGrid",   p:90,  sw:"#e8edf5" },
   { id:"dusk",   tx:"wDusk",   p:130, sw:"#c06c84", ink:"#fff" },
   { id:"neon",   tx:"wNeon",   p:160, sw:"#2b1152", ink:"#fff" },
-  { id:"ocean",  tx:"wOcean",  p:180, sw:"#0d5c82", ink:"#fff" }
+  { id:"ocean",  tx:"wOcean",  p:180, sw:"#0d5c82", ink:"#fff" },
+  { id:"dora-sky",    tx:"wDoraSky",    p:80,  sw:"#9bdcf5" },
+  { id:"dora-cloud",  tx:"wDoraCloud",  p:90,  sw:"#d4f3fc" },
+  { id:"dora-pastel", tx:"wDoraPastel", p:100, sw:"#e8cbe8" },
+  { id:"dora-pirate", tx:"wDoraPirate", p:180, sw:"#0c5a89" }
 ];
 
 var SKINS = [
@@ -5786,7 +5871,8 @@ function shopCard(kind, it){
   var owned = shopOwns(kind, it.id);
   var using = (kind === "skin" ? skinOn() : wallOn()) === it.id;
   var sw = kind === "wall"
-    ? '<div class="shopSwatch" style="background:' + it.sw + '"></div>'
+    ? '<div class="shopSwatch" data-wall-preview="' + esc(it.id) +
+      '" style="background:' + it.sw + '"></div>'
     : '<div class="shopSwatch" style="background:var(--card2)"><i style="background:' +
       (it.id === "ink" ? "transparent;border:2px solid var(--tx)"
                        : it.id === "mono" ? "var(--tx)" : "var(--ac)") +
@@ -5929,8 +6015,12 @@ function friendTimetableHtml(){
     });
     h += '</div>';
   }
-  return h + '<div class="shellBtns"><button type="button" data-act="friendViewClose">' +
-    t("friendsClose") + '</button></div></div>';
+  h += '<p class="shellS">' + esc(t("friendsCopyHint")) + '</p>';
+  return h + '<div class="shellBtns">' +
+    '<button type="button" class="on" data-act="friendCopy">' + t("friendsCopy") + '</button>' +
+    '<button type="button" data-act="friendRefresh">' + t("friendsRefresh") + '</button>' +
+    '<button type="button" data-act="friendViewClose">' + t("friendsClose") + '</button>' +
+    '</div></div>';
 }
 
 function friendsHtml(){
@@ -5999,6 +6089,60 @@ function paintFriendSurfaces(){
   if($("sheetFriends") && $("sheetFriends").classList.contains("on")) paintFriendsSheet();
 }
 
+function friendCopyData(v){
+  var data = v && v.data || {}, rows = Array.isArray(data.alarms) ? data.alarms.slice() : [];
+  var owner = modeIdx(v && v.mode);
+  var list = rows.map(function(a){
+    var copy = {};
+    for(var k in a) copy[k] = a[k];
+    copy.owner = owner;
+    delete copy.id;
+    return copy;
+  });
+  var req = { how:"merge", owner:owner, list:list };
+  var saved = DEMO
+    ? Promise.resolve(demoApi("/api/import", { method:"POST", body:JSON.stringify(req) }))
+    : api("/api/import", { method:"POST", body:JSON.stringify(req) });
+  return saved.then(function(){
+    if(data.sem && typeof data.sem === "object"){
+      DB.sem = {
+        enabled: !!data.sem.enabled,
+        start: String(data.sem.start || "2026-01-01"),
+        weeks: Math.max(1, Math.min(52, parseInt(data.sem.weeks, 10) || 14)),
+        weekStart: data.sem.weekStart ? 1 : 0,
+        offOutside: data.sem.offOutside !== false
+      };
+      if(DEMO) demoSave();
+    }
+    return Promise.resolve(pull()).then(pullAlarms).then(pullSem).then(function(){
+      return list.length;
+    });
+  });
+}
+
+function friendRefreshView(){
+  var v = FRIENDS.view;
+  if(!v) return Promise.resolve(null);
+  return friendView(v.friend_id, v.mode).then(function(next){
+    if(Array.isArray(next)) next = next[0];
+    if(!next) throw new Error(t("friendsNoAccess"));
+    FRIENDS.view = next;
+    return next;
+  });
+}
+
+function friendWatchStart(){
+  if(friendWatchTimer) clearInterval(friendWatchTimer);
+  friendWatchTimer = setInterval(function(){
+    if(!FRIENDS.view || !$("sheetFriends") ||
+       !$("sheetFriends").classList.contains("on")) return;
+    friendRefreshView().then(function(){ paintFriendsSheet(); }).catch(function(){});
+  }, 30000);
+}
+function friendWatchStop(){
+  if(friendWatchTimer){ clearInterval(friendWatchTimer); friendWatchTimer = null; }
+}
+
 // The timetable entry and the full Account screen use the same friend
 // controls. Keeping one handler prevents one screen from quietly lagging
 // behind the other when a request or privacy switch changes.
@@ -6050,18 +6194,33 @@ function handleFriendAct(btn, act){
       .then(function(v){
         if(Array.isArray(v)) v = v[0];
         if(!v) throw new Error(t("friendsNoAccess"));
-        FRIENDS.view = v; FRIENDS.msg = ""; paintFriendSurfaces();
+        FRIENDS.view = v; FRIENDS.msg = ""; friendWatchStart(); paintFriendSurfaces();
       })
       .catch(function(err){ FRIENDS.msg = String(err && err.message || t("friendsNoAccess")); paintFriendSurfaces(); });
     return true;
   }
   if(act === "friendViewClose"){
-    FRIENDS.view = null; paintFriendSurfaces(); return true;
+    friendWatchStop(); FRIENDS.view = null; paintFriendSurfaces(); return true;
+  }
+  if(act === "friendRefresh"){
+    FRIENDS.msg = t("meWorking"); paintFriendSurfaces();
+    friendRefreshView()
+      .then(function(){ FRIENDS.msg = ""; paintFriendSurfaces(); toast(t("friendsUpdated")); })
+      .catch(function(err){ FRIENDS.msg = String(err && err.message || t("friendsNoAccess")); paintFriendSurfaces(); });
+    return true;
+  }
+  if(act === "friendCopy"){
+    if(!FRIENDS.view || !confirm(t("friendsCopyAsk"))) return true;
+    FRIENDS.msg = t("meWorking"); paintFriendSurfaces();
+    friendCopyData(FRIENDS.view)
+      .then(function(n){ FRIENDS.msg = ""; paintFriendSurfaces(); toast(t("friendsCopied", n)); })
+      .catch(function(err){ FRIENDS.msg = String(err && err.message || t("friendsFailed")); paintFriendSurfaces(); });
+    return true;
   }
   return false;
 }
 
-document.getElementById("friendsClose").onclick = function(){ closeSheets(); };
+document.getElementById("friendsClose").onclick = function(){ friendWatchStop(); closeSheets(); };
 document.getElementById("friendsBody").onclick = function(e){
   var btn = e.target.closest ? e.target.closest("[data-act]") : null;
   if(btn) handleFriendAct(btn, btn.dataset.act);
@@ -9060,6 +9219,7 @@ var CLOUD = { url:"", key:"", token:"", refresh:"", uid:"", email:"",
               username:"", on:false };
 var cloudTab = "login", cloudMsg = null, cloudSaveTimer = null;
 var FRIENDS = { rows:[], loaded:false, loading:false, msg:"", view:null };
+var friendWatchTimer = null;
 
 // * NEVER write upward before successfully reading the cloud copy *
 //   For the first second or two after opening the app, what is on screen may still be empty
@@ -9674,6 +9834,7 @@ function cloudRecover(email){
 function cloudLogout(){
   if(refreshTimer){ clearTimeout(refreshTimer); refreshTimer = null; }
   if(cloudSaveTimer){ clearTimeout(cloudSaveTimer); cloudSaveTimer = null; }
+  friendWatchStop();
   CLOUD.token = CLOUD.refresh = CLOUD.uid = CLOUD.email = CLOUD.username = "";
   cloudReady = false;
   cloudSaveCfg();
@@ -12482,11 +12643,22 @@ $("stubStage").onclick = function(e){
   if(act === "cashAdd"){
     var what = String(($("cashT") || {}).value || "").trim().slice(0, 40);
     var amt = parseFloat(($("cashA") || {}).value);
-    if(!what || !isFinite(amt) || amt <= 0){ toast(t("cashNeed")); return; }
+    if(!isFinite(amt) || amt <= 0){ toast(t("cashNeed")); return; }
+    if(!what) what = t("cashUntitled");
     var spend = pk("cash", []);
     spend.unshift({ id: "u" + Date.now().toString(36), d: 0, t: what, a: -Math.abs(amt) });
     pkSet("cash", spend);
     paintHome();
+    toast(t("cashRecorded"));
+    return;
+  }
+  if(act === "cashDetails"){
+    var details = $("cashDetails");
+    if(!details) return;
+    var showDetails = !!details.hidden;
+    details.hidden = !showDetails;
+    btn.textContent = t(showDetails ? "cashDetailsHide" : "cashDetails");
+    if(showDetails && $("cashT")) $("cashT").focus();
     return;
   }
   if(act === "evGo"){
