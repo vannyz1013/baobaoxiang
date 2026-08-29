@@ -48,9 +48,16 @@ self.addEventListener("fetch", function(e){
   };
 
   // The document: network first, cache only when the network is gone.
+  //
+  // `cache: "no-store"` matters and is not belt-and-braces. GitHub Pages
+  // serves index.html with Cache-Control: max-age=600, so a plain fetch
+  // here can be answered by the BROWSER cache with the ten-minute-old
+  // page -- which points at the old hashed bundle. Network-first that is
+  // quietly served from a cache is not network-first, and it is why a
+  // fresh deploy could still look like the previous build.
   if(e.request.mode === "navigate" || url.pathname.endsWith(".html")){
     e.respondWith(
-      fetch(e.request).then(save).catch(function(){
+      fetch(e.request, { cache: "no-store" }).then(save).catch(function(){
         return caches.match(e.request).then(function(hit){
           return hit || caches.match("./index.html");
         });
