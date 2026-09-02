@@ -1,6 +1,7 @@
-# Pocket
+# Pocket Scientific Calculator
 
-Class reminders: wakes you a few minutes before each class.
+A scientific calculator, a 2D and 3D grapher, and a class timetable.
+Everything runs in the browser, on your own phone.
 
 **<https://vannyz1013.github.io/baobaoxiang/>**
 
