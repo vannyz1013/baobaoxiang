@@ -1,7 +1,11 @@
-# Pocket Scientific Calculator
+# Baibaoxiang 我的百宝箱
 
-A scientific calculator, a 2D and 3D grapher, and a class timetable.
-Everything runs in the browser, on your own phone.
+A campus super-app for UTAR students: a class timetable, a scientific
+calculator, a 2D and 3D grapher, attendance, deadlines, GPA, and 算命
+(a computed natal chart, BaZi, tarot and the I Ching) -- fifty-one apps
+behind one home screen you can arrange yourself.
+
+Everything runs in the browser, on your own phone. Nothing is uploaded.
 
 **<https://vannyz1013.github.io/baobaoxiang/>**
 
