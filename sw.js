@@ -5,8 +5,8 @@
 // stay that way for days. Everything else (icons, the manifest) stays
 // cache-first, since those change only when the build does. Offline still
 // works: a failed navigation falls back to the cached page.
-const CACHE = "baobaoxiang-v08193b6b";
-const FILES = ["./","./index.html","./manifest.json","./apple-touch-icon.png","./icon-192.png","./icon-512.png","./assets/index-BJZIKBhz.js","./assets/index-C5By4Jk7.css"];
+const CACHE = "baobaoxiang-v8cf3c638";
+const FILES = ["./","./index.html","./manifest.json","./apple-touch-icon.png","./icon-192.png","./icon-512.png","./assets/index-D3fmBZWG.css","./assets/index-G83LzoQp.js"];
 
 self.addEventListener("install", function(e){
   self.skipWaiting();
