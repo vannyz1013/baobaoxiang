@@ -1,14 +1,14 @@
 {
-  "name": "Pocket Scientific Calculator",
-  "short_name": "Pocket SC",
-  "description": "A scientific calculator, a grapher and a class timetable, on this phone",
+  "name": "Pocket",
+  "short_name": "Pocket",
+  "description": "Your day, in one place. A student planner with a timetable, deadlines and study tools.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#eaf6fd",
-  "theme_color": "#00a0e9",
-  "lang": "en",
+  "background_color": "#F7F8F5",
+  "theme_color": "#F7F8F5",
+  "lang": "zh",
   "icons": [
     {
       "src": "icon-192.png",
