@@ -8,7 +8,7 @@ behind one home screen you can arrange yourself.
 Pocket stores app data in your browser on this device. When you sign in,
 schedule and account information can sync with Pocket's cloud service;
 friend features can also share schedule information. Course name mappings
-stay on this device.
+sync across your devices when you are signed in.
 
 **<https://vannyz1013.github.io/baobaoxiang/>**
 

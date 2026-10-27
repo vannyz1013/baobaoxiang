@@ -5,8 +5,8 @@
 // stay that way for days. Everything else (icons, the manifest) stays
 // cache-first, since those change only when the build does. Offline still
 // works: a failed navigation falls back to the cached page.
-const CACHE = "baobaoxiang-vaf62a9b0";
-const FILES = ["./","./index.html","./manifest.json","./apple-touch-icon.png","./icon-192.png","./icon-512.png","./assets/index-BqFBaFP8.js","./assets/index-D2LlI741.css","./assets/eng.traineddata","./assets/exam-ocr-CiUE89Rv.js","./assets/local-ocr-iK00cPaq.js","./assets/pdf.worker.min-CjEcRF4W.mjs","./assets/tesseract-core-lstm.wasm-DhgzXyTR.js","./assets/timetable-ocr-yxfEmUKm.js","./assets/worker.min-32WLk7pY.js"];
+const CACHE = "baobaoxiang-v5ecf6a22";
+const FILES = ["./","./index.html","./manifest.json","./apple-touch-icon.png","./icon-192.png","./icon-512.png","./assets/index-C4UfD_5B.js","./assets/index-DHYshqMI.css","./assets/eng.traineddata","./assets/exam-ocr-D2uo0b4a.js","./assets/local-ocr-Cl2K3j9T.js","./assets/pdf.worker.min-CjEcRF4W.mjs","./assets/tesseract-core-lstm.wasm-DhgzXyTR.js","./assets/timetable-ocr-DCPQZF8b.js","./assets/worker.min-32WLk7pY.js"];
 
 self.addEventListener("install", function(e){
   self.skipWaiting();
